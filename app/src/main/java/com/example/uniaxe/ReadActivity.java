@@ -118,4 +118,3 @@ public class ReadActivity extends AppCompatActivity {
         customAdapter.notifyDataSetChanged();  // Notify adapter of changes
     }
 }
-

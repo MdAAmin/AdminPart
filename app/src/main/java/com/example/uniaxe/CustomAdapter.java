@@ -82,13 +82,21 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                     FirebaseDatabase.getInstance().getReference("PDFs")
                             .child(model.getKey())
                             .removeValue()
-                            .addOnSuccessListener(unused ->
-                                    Toast.makeText(context, "Deleted successfully!", Toast.LENGTH_SHORT).show())
+                            .addOnSuccessListener(unused -> {
+                                // Display the success toast
+                                Toast.makeText(context, "Deleted successfully!", Toast.LENGTH_SHORT).show();
+
+                                // Navigate to AdminDashBoard activity
+                                Intent intent = new Intent(context, AdminDashBoard.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // To start a new activity
+                                context.startActivity(intent);
+                            })
                             .addOnFailureListener(e ->
                                     Toast.makeText(context, "Failed to delete: " + e.getMessage(), Toast.LENGTH_SHORT).show());
                     return true;
                 }
                 return false;
+
             });
 
             popupMenu.show();

@@ -3,14 +3,11 @@ package com.example.uniaxe;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AdminDashBoard extends AppCompatActivity {
-
-    private Button btnCreate, btnRead, btnUpdate;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -19,9 +16,9 @@ public class AdminDashBoard extends AppCompatActivity {
         setContentView(R.layout.activity_admin_dash_board);
 
         // Initialize buttons
-        btnCreate = findViewById(R.id.btnCreate);
-        btnRead = findViewById(R.id.btnRead);
-        btnUpdate = findViewById(R.id.btnUpdate);
+        Button btnCreate = findViewById(R.id.btnCreate);
+        Button btnRead = findViewById(R.id.btnRead);
+        Button btnUpdate = findViewById(R.id.btnUpdate);
 
         // Set click listeners for each button
         btnCreate.setOnClickListener(v -> openCreateActivity());

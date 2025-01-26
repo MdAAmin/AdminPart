@@ -24,9 +24,7 @@ public class UpdateActivity extends AppCompatActivity {
     private EditText etCourseId, etCourseName, etYearName;
     private Spinner spinnerSemester;
     private RadioGroup radioGroupExamType, radioGroupQuestionNote;
-    private ImageView pdfIn;
     private ProgressBar progressBar;
-    private Button btnUpdateFile;
 
     private DatabaseReference databaseReference;
     private String key, courseId, courseName, semester, examType, pdfType, year, pdfUrl;
@@ -44,9 +42,9 @@ public class UpdateActivity extends AppCompatActivity {
         spinnerSemester = findViewById(R.id.spinner_semester);
         radioGroupExamType = findViewById(R.id.radioGroup);
         radioGroupQuestionNote = findViewById(R.id.radioGroup_question_note);
-        pdfIn = findViewById(R.id.pdf_in);
+        ImageView pdfIn = findViewById(R.id.pdf_in);
         progressBar = findViewById(R.id.progressBar);
-        btnUpdateFile = findViewById(R.id.btnUpdateFile);
+        Button btnUpdateFile = findViewById(R.id.btnUpdateFile);
 
         // Get Firebase reference
         databaseReference = FirebaseDatabase.getInstance().getReference("PDFs");
@@ -161,6 +159,9 @@ public class UpdateActivity extends AppCompatActivity {
                 .addOnSuccessListener(unused -> {
                     progressBar.setVisibility(View.GONE);
                     Toast.makeText(this, "Updated successfully!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, AdminDashBoard.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // To start a new activity
+                    startActivity(intent);
                     finish();
                 })
                 .addOnFailureListener(e -> {

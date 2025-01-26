@@ -20,7 +20,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,11 +39,8 @@ public class CreateActivity extends AppCompatActivity {
     private static final int PDF_REQ = 1;
 
     private EditText etQuestionId, etCourseName, etYearName;
-    private Spinner spinner;
     private RadioGroup radioGroup, radioGroupQuestionNote;
-    private RadioButton radioMid, radioFinal, radioQuestion, radioNote;
     private ImageView pdfIn;
-    private Button btnInsertFile;
     private ProgressBar progressBar;
     private Uri pdfUri;
     private DatabaseReference reference;
@@ -63,15 +59,15 @@ public class CreateActivity extends AppCompatActivity {
         etQuestionId = findViewById(R.id.et_course_id);
         etCourseName = findViewById(R.id.et_course_name);
         etYearName = findViewById(R.id.et_year_name);
-        spinner = findViewById(R.id.spinner_semester);
+        Spinner spinner = findViewById(R.id.spinner_semester);
         radioGroup = findViewById(R.id.radioGroup);
         radioGroupQuestionNote = findViewById(R.id.radioGroup_question_note);
-        radioMid = findViewById(R.id.radio_mid);
-        radioFinal = findViewById(R.id.radio_final);
-        radioQuestion = findViewById(R.id.radio_question);
-        radioNote = findViewById(R.id.radio_note);
+        RadioButton radioMid = findViewById(R.id.radio_mid);
+        RadioButton radioFinal = findViewById(R.id.radio_final);
+        RadioButton radioQuestion = findViewById(R.id.radio_question);
+        RadioButton radioNote = findViewById(R.id.radio_note);
         pdfIn = findViewById(R.id.pdf_in);
-        btnInsertFile = findViewById(R.id.btnInsertFile);
+        Button btnInsertFile = findViewById(R.id.btnInsertFile);
         progressBar = findViewById(R.id.progressBar);
 
         // Set up the Spinner with semester options
