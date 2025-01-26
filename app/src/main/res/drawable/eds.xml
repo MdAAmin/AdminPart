@@ -1,0 +1,16 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="#B2EBF2" /> <!-- Lighter Pressed Color -->
+            <corners android:radius="4dp" />
+            <stroke android:width="2dp" android:color="#00796B" /> <!-- Lighter Stroke Color -->
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="#E0F7FA" /> <!-- Lighter Normal Color -->
+            <corners android:radius="4dp" />
+            <stroke android:width="2dp" android:color="#B2EBF2" /> <!-- Lighter Stroke Color -->
+        </shape>
+    </item>
+</selector>

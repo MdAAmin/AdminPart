@@ -1,0 +1,183 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminSignUp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="8dp"
+        android:background="@drawable/eds"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/adminTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Admin SignUp"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:layout_marginBottom="8dp"
+            android:textColor="#1A73E8"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/adminInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_box2"
+            android:padding="12dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/adminName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Admin Name"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColor="#37474F"
+                android:textColorHint="#B0BEC5"
+                android:padding="15dp"
+                android:background="@drawable/border"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:id="@+id/adminEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Email"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp"
+                android:textColor="#37474F"
+                android:textColorHint="#B0BEC5"
+                android:padding="15dp"
+                android:background="@drawable/border"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Password Field with Eye Toggle -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:endIconMode="password_toggle"
+                app:endIconTint="#37474F"
+                android:layout_marginBottom="10dp">
+
+                <EditText
+                    android:id="@+id/adminPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Password"
+                    android:inputType="textPassword"
+                    android:minHeight="48dp"
+                    android:textColor="#37474F"
+                    android:textColorHint="#B0BEC5"
+                    android:padding="15dp"
+                    android:background="@drawable/border" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Confirm Password Field with Eye Toggle -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:endIconMode="password_toggle"
+                app:endIconTint="#37474F"
+                android:layout_marginBottom="10dp">
+
+                <EditText
+                    android:id="@+id/adminConfirmPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword"
+                    android:minHeight="48dp"
+                    android:textColor="#37474F"
+                    android:textColorHint="#B0BEC5"
+                    android:padding="15dp"
+                    android:background="@drawable/border" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <EditText
+                android:id="@+id/adminIdNum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter ID Number"
+                android:inputType="phone"
+                android:minHeight="48dp"
+                android:textColor="#37474F"
+                android:textColorHint="#B0BEC5"
+                android:padding="15dp"
+                android:background="@drawable/border"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:id="@+id/adminDefaultName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Default Admin Name"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColor="#37474F"
+                android:textColorHint="#B0BEC5"
+                android:padding="15dp"
+                android:background="@drawable/border"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Default Admin Password Field with Eye Toggle -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:endIconMode="password_toggle"
+                app:endIconTint="#37474F"
+                android:layout_marginBottom="10dp">
+
+                <EditText
+                    android:id="@+id/adminDefaultPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Default Admin Password"
+                    android:inputType="textPassword"
+                    android:minHeight="48dp"
+                    android:textColor="#37474F"
+                    android:textColorHint="#B0BEC5"
+                    android:padding="15dp"
+                    android:background="@drawable/border" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/adminSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#1E88E5"
+            android:textStyle="bold"
+            android:elevation="8dp" />
+
+        <ProgressBar
+            android:id="@+id/adminProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/adminAlreadyRegistered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="48dp"
+            android:text="Already Registered? Login"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="16sp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

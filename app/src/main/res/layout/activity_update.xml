@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="#F8BBD0"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".UpdateActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:text="Edit PDF"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Course ID EditText -->
+    <EditText
+        android:id="@+id/et_course_id"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@android:drawable/edit_text"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:hint="Course ID" />
+
+    <!-- Course Name EditText -->
+    <EditText
+        android:id="@+id/et_course_name"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="Course Name"
+        android:inputType="text"
+        android:background="@android:drawable/edit_text"
+        android:minHeight="48dp" />
+
+    <!-- Spinner for Semester -->
+    <Spinner
+        android:id="@+id/spinner_semester"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:spinnerMode="dropdown"
+        android:layout_marginBottom="10dp"
+        android:background="@android:drawable/edit_text" />
+
+    <!-- RadioGroup for Exam Type -->
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/radio_mid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="Mid" />
+        <RadioButton
+            android:id="@+id/radio_final"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="Final" />
+    </RadioGroup>
+
+    <!-- RadioGroup for PDF Type -->
+    <RadioGroup
+        android:id="@+id/radioGroup_question_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+        <RadioButton
+            android:id="@+id/radio_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="Question" />
+        <RadioButton
+            android:id="@+id/radio_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="Note" />
+    </RadioGroup>
+
+    <!-- Year EditText -->
+    <EditText
+        android:id="@+id/et_year_name"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="Year"
+        android:inputType="text"
+        android:background="@android:drawable/edit_text"
+        android:minHeight="48dp" />
+
+    <!-- ImageView for PDF Selection -->
+    <ImageView
+        android:id="@+id/pdf_in"
+        android:layout_width="122dp"
+        android:layout_height="105dp"
+        android:layout_marginBottom="16dp"
+        android:padding="8dp"
+        android:src="@drawable/select_pdf"
+        android:contentDescription="Select PDF"
+        android:background="@android:drawable/edit_text" />
+
+    <!-- ProgressBar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        style="@android:style/Widget.ProgressBar.Small" />
+
+    <!-- Update Button -->
+    <Button
+        android:id="@+id/btnUpdateFile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update PDF" />
+
+</LinearLayout>

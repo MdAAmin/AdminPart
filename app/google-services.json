@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "433669415673",
+    "project_id": "uniaxe-e4a1b",
+    "storage_bucket": "uniaxe-e4a1b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433669415673:android:a6474e41a678e609a57828",
+        "android_client_info": {
+          "package_name": "com.example.uniaxe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBouzKySY9hko_Uiz_8gHz7ILHE_39Oirw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

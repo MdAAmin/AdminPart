@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal">
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/calculate_your_cgpa"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center" />
+
+
+
+
+
+    <EditText
+
+        android:id="@+id/gradesInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_cgpa_of_courses_separated_by_commas"
+        android:inputType="phone"
+        android:padding="16dp" />
+
+    <EditText
+        android:id="@+id/creditsInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_credits_of_corresponding_courses_separated_by_commas"
+        android:inputType="phone"
+        android:padding="16dp"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculate_cgpa"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/result_will_appear_here"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center" />
+
+</LinearLayout>
