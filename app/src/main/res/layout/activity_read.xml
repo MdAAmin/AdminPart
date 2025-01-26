@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,16 +9,14 @@
     android:background="#F8BBD0"
     tools:context=".ReadActivity">
 
-    <!-- TextView for the title of the activity -->
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- SearchView for searching items -->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="16dp"
-        android:text="Select and View PDF"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:queryHint="Search by course name, ID, or exam type"
+        android:iconifiedByDefault="false"
+        android:layout_marginBottom="16dp" />
 
     <!-- ProgressBar for loading indication -->
     <ProgressBar
@@ -51,6 +48,4 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_margin="10dp" />
-
-
 </LinearLayout>
