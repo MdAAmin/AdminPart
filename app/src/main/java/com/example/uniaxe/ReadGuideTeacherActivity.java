@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,6 +29,7 @@ public class ReadGuideTeacherActivity extends AppCompatActivity {
     private ArrayList<ModelTeacher> itemList;
     private ArrayList<ModelTeacher> filteredItemList; // New list for filtered results
     private TeacherCustomAdapter customAdapter;
+    private SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class ReadGuideTeacherActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         noDataTextView = findViewById(R.id.noData);
         progressBar = findViewById(R.id.progressBar);
+        searchView = findViewById(R.id.searchView); // Initialize the search view
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -52,6 +55,20 @@ public class ReadGuideTeacherActivity extends AppCompatActivity {
 
         // Fetch items from Firebase
         fetchItems();
+
+        // Search functionality
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;  // Optional, handle search submit action if needed
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
     }
 
     private void fetchItems() {
@@ -87,14 +104,16 @@ public class ReadGuideTeacherActivity extends AppCompatActivity {
         });
     }
 
-    // Optional: Method to filter the list based on user input
+    // Filter list based on query
     public void filterList(String query) {
         filteredItemList.clear();
         if (query.isEmpty()) {
-            filteredItemList.addAll(itemList); // Show all items if query is empty
+            filteredItemList.addAll(itemList);  // Show all items if query is empty
         } else {
             for (ModelTeacher item : itemList) {
-                if (item.getCouName().toLowerCase().contains(query.toLowerCase()) ||
+                if (item.getTeacherName().toLowerCase().contains(query.toLowerCase()) || // Added this line
+                        item.getCouName().toLowerCase().contains(query.toLowerCase()) ||
+                        item.getCouId().toLowerCase().contains(query.toLowerCase()) || // Added this line
                         item.getBatch().toLowerCase().contains(query.toLowerCase())) {
                     filteredItemList.add(item);
                 }

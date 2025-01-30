@@ -32,7 +32,7 @@ public class StuSyllabusReadActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_read_guide_teacher);
+        setContentView(R.layout.activity_syllabus_read);
 
         // Initialize views
         recyclerView = findViewById(R.id.recyclerView);

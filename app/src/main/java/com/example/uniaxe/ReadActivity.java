@@ -106,11 +106,13 @@ public class ReadActivity extends AppCompatActivity {
             filteredItemList.addAll(itemList);  // If no search query, show all items
         } else {
             for (Model item : itemList) {
-                // Search by course name, ID, semester, and exam type (midterm/final)
+                // Search by course name, ID, semester, exam type, year, and pdf type
                 if (item.getCourseName().toLowerCase().contains(query.toLowerCase()) ||
                         item.getCourseId().toLowerCase().contains(query.toLowerCase()) ||
                         item.getSemester().toLowerCase().contains(query.toLowerCase()) ||
-                        item.getExamType().toLowerCase().contains(query.toLowerCase())) {
+                        item.getExamType().toLowerCase().contains(query.toLowerCase()) ||
+                        item.getYear().toLowerCase().contains(query.toLowerCase()) ||  // Added this line
+                        item.getPdfType().toLowerCase().contains(query.toLowerCase())) {  // Added this line
                     filteredItemList.add(item);
                 }
             }
