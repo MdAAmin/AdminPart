@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="16dp"
-        android:text="@string/insert_pdf"
+        android:text="Insert Pdf"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -68,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
-            android:text="@string/Final"/>
+            android:text="Final"/>
     </RadioGroup>
 
     <RadioGroup
@@ -96,7 +96,7 @@
         android:layout_width="325dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:hint="@string/Year"
+        android:hint="Year"
         android:autofillHints=""
         android:inputType="text"
         android:background="@android:drawable/edit_text"

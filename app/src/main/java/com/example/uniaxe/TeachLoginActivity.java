@@ -9,8 +9,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,7 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class StuLoginActivity extends AppCompatActivity {
+public class TeachLoginActivity extends AppCompatActivity {
     private EditText emailEditText, passEditText;
     private Button submit;
     private TextView register;
@@ -30,9 +34,14 @@ public class StuLoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stu_login);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_teach_login);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
 
-        // Initialize UI components
         emailEditText = findViewById(R.id.email);
         passEditText = findViewById(R.id.pass);
         submit = findViewById(R.id.submit);
@@ -41,19 +50,17 @@ public class StuLoginActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 
-        // Login Button Click Listener
         submit.setOnClickListener(v -> {
             String email = emailEditText.getText().toString().trim();
             String pass = passEditText.getText().toString().trim();
 
-            // Validation for input fields
             if (email.isEmpty()) {
-                emailEditText.setError("Email cannot be empty!");
+                emailEditText.setError("Empty!!");
                 emailEditText.requestFocus();
                 return;
             }
             if (pass.isEmpty()) {
-                passEditText.setError("Password cannot be empty!");
+                passEditText.setError("Empty!!");
                 passEditText.requestFocus();
                 return;
             }
@@ -61,27 +68,24 @@ public class StuLoginActivity extends AppCompatActivity {
             // Show progress bar
             progressBar.setVisibility(View.VISIBLE);
 
-            // Firebase authentication for login
             auth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    // Hide progress bar
                     progressBar.setVisibility(View.GONE);
-
+                    FirebaseUser user = auth.getCurrentUser();
                     if (task.isSuccessful()) {
-                        FirebaseUser user = auth.getCurrentUser();
                         if (user != null && user.isEmailVerified()) {
-                            // Check if the user is in the 'Students' collection
-                            firestore.collection("Students").document(user.getUid()).get()
+                            // Check if the user is in the 'Teachers' collection
+                            firestore.collection("Teachers").document(user.getUid()).get()
                                     .addOnSuccessListener(documentSnapshot -> {
                                         if (documentSnapshot.exists()) {
-                                            // User is a student, proceed to the student dashboard
+                                            // User is a teacher, proceed to the teacher dashboard
                                             Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_SHORT).show();
-                                            startActivity(new Intent(getApplicationContext(), StudentDashBoard.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                                            startActivity(new Intent(getApplicationContext(), TeacherDashBoard.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                                             finish();
                                         } else {
-                                            // User is not a student (perhaps an admin)
-                                            Toast.makeText(getApplicationContext(), "You are not registered as a student!", Toast.LENGTH_SHORT).show();
+                                            // User is not a teacher
+                                            Toast.makeText(getApplicationContext(), "You are not registered as a teacher!", Toast.LENGTH_SHORT).show();
                                             auth.signOut();
                                         }
                                     })
@@ -91,7 +95,7 @@ public class StuLoginActivity extends AppCompatActivity {
                                     });
                         } else {
                             // Email not verified
-                            Toast.makeText(getApplicationContext(), "Please verify your email before logging in.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Please verify your email.", Toast.LENGTH_SHORT).show();
                             auth.signOut();
                         }
                     } else {
@@ -102,9 +106,8 @@ public class StuLoginActivity extends AppCompatActivity {
             });
         });
 
-        // Register Button Click Listener
         register.setOnClickListener(v -> {
-            startActivity(new Intent(getApplicationContext(), StuSignUp.class));
+            startActivity(new Intent(getApplicationContext(), TeachSignUp.class));
         });
     }
 }

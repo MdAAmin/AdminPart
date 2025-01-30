@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:gravity="center"
+    tools:context=".UpdateGuideActivity"
+    android:background="#B2C5F2">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_item"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:layout_marginBottom="20dp"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:id="@+id/inputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!-- ImageView to display a thumbnail for PDFs -->
+        <!--        <ImageView-->
+        <!--            android:id="@+id/pdfThumbnail"-->
+        <!--            android:layout_width="150dp"-->
+        <!--            android:layout_height="150dp"-->
+        <!--            android:src="@drawable/pic"-->
+        <!--            android:layout_marginBottom="20dp"/>-->
+
+
+
+        <TextView
+            android:id="@+id/pdf_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="30dp"
+            android:padding="8dp"
+            android:textSize="16sp"
+            android:background="@android:drawable/edit_text"
+            android:hint="@string/pdf_UP"
+            />
+
+        <EditText
+            android:id="@+id/cou_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="Course Name"
+            android:background="@android:drawable/edit_text"
+            android:inputType="text"
+            android:padding="20dp"
+            android:layout_marginBottom="10dp" />
+
+        <EditText
+            android:id="@+id/cou_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:autofillHints=""
+            android:hint="@string/course_id_n"
+            android:inputType="text"
+            android:background="@android:drawable/edit_text"
+            android:padding="20dp" />
+        <EditText
+            android:id="@+id/batch_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/batch"
+            android:autofillHints=""
+            android:inputType="phone"
+            android:background="@android:drawable/edit_text"
+            android:minHeight="48dp" />
+
+
+        <TextView
+            android:id="@+id/selectPdf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="30dp"
+            android:background="@android:drawable/edit_text"
+            android:hint="@string/pdf_UP"
+
+            android:padding="8dp"
+            android:textSize="16sp"
+            />
+
+
+
+
+
+
+
+        <!-- EditText for title -->
+
+        <!-- Button to select PDF -->
+        <!--        <Button-->
+        <!--            android:id="@+id/selectPdfButton"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="45dp"-->
+        <!--            android:text="@string/select_pdf_g"/>-->
+
+        <!-- Update Button -->
+        <Button
+            android:id="@+id/updateButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/update_g"/>
+
+    </LinearLayout>
+
+    <!-- ProgressBar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+</LinearLayout>

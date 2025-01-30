@@ -41,6 +41,7 @@ public class AdminLogin extends AppCompatActivity {
             email = emailEditText.getText().toString().trim();
             pass = passEditText.getText().toString().trim();
 
+            // Validation checks for empty fields
             if (email.isEmpty()) {
                 emailEditText.setError("Empty!!");
                 emailEditText.requestFocus();
@@ -54,39 +55,45 @@ public class AdminLogin extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         FirebaseUser user = auth.getCurrentUser();
                         if (user != null && user.isEmailVerified()) {
-                            navigateToAdminDashboard(user);
+                            navigateToAdminDashboard(user); // Navigate to admin dashboard
                         } else {
                             // Email not verified
                             Toast.makeText(getApplicationContext(), "Please verify your email.", Toast.LENGTH_SHORT).show();
                             auth.signOut();
                         }
                     } else {
+                        // Login failed
                         Toast.makeText(getApplicationContext(), "Login Failed!!", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
         });
 
+        // Register button click listener
         register.setOnClickListener(v -> {
             finish();
-            startActivity(new Intent(getApplicationContext(), AdminSignUp.class));
+            startActivity(new Intent(getApplicationContext(), AdminSignUp.class)); // Navigate to admin sign-up
         });
     }
 
+    // Navigates to admin dashboard if the user is verified as an admin
     private void navigateToAdminDashboard(FirebaseUser user) {
         DocumentReference docRef = firestore.collection("Admins").document(user.getUid());
         docRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 DocumentSnapshot document = task.getResult();
                 if (document != null && document.exists()) {
+                    // Admin login successful
                     Toast.makeText(getApplicationContext(), "Admin Login Successful!", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), AdminDashBoard.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                     finish();
                 } else {
+                    // User not found in Admins collection
                     Toast.makeText(getApplicationContext(), "User not found in Admins collection!", Toast.LENGTH_SHORT).show();
                     auth.signOut();
                 }
             } else {
+                // Error fetching user data
                 Toast.makeText(getApplicationContext(), "Failed to fetch user data!", Toast.LENGTH_SHORT).show();
                 auth.signOut();
             }

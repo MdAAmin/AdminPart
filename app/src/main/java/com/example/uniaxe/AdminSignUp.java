@@ -22,12 +22,16 @@ import java.util.Map;
 import java.util.Objects;
 
 public class AdminSignUp extends AppCompatActivity {
-    private EditText adminNameEditText, emailEditText, passEditText, confirmPassEditText, idNumEditText;
-    private String adminName, email, pass, confirmPass, idNum;
+    private EditText adminNameEditText, emailEditText, passEditText, confirmPassEditText, idNumEditText, defAdminNameEditText, defAdminPassEditText;
+    private String adminName, email, pass, confirmPass, idNum, defAdminName, defAdminPass;
     private ProgressBar progressBar;
 
     private FirebaseAuth auth;
     private FirebaseFirestore firestore;
+
+    // Default admin credentials
+    private static final String DEFAULT_NAME = "HAS";
+    private static final String DEFAULT_PASS = "12345aA@";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,8 @@ public class AdminSignUp extends AppCompatActivity {
         passEditText = findViewById(R.id.adminPass);
         confirmPassEditText = findViewById(R.id.adminConfirmPass);
         idNumEditText = findViewById(R.id.adminIdNum);
+        defAdminNameEditText = findViewById(R.id.adminDefaultName); // New input field for default name
+        defAdminPassEditText = findViewById(R.id.adminDefaultPass); // New input field for default pass
         Button submit = findViewById(R.id.adminSubmit);
         TextView login = findViewById(R.id.adminAlreadyRegistered);
         progressBar = findViewById(R.id.adminProgressBar);
@@ -52,7 +58,16 @@ public class AdminSignUp extends AppCompatActivity {
             pass = passEditText.getText().toString().trim();
             confirmPass = confirmPassEditText.getText().toString().trim();
             idNum = idNumEditText.getText().toString().trim();
+            defAdminName = defAdminNameEditText.getText().toString().trim();
+            defAdminPass = defAdminPassEditText.getText().toString().trim();
 
+            // Validate the default admin name and password first
+            if (!DEFAULT_NAME.equals(defAdminName) || !DEFAULT_PASS.equals(defAdminPass)) {
+                Toast.makeText(AdminSignUp.this, "Invalid default admin credentials. Please try again.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Validate other fields
             if (adminName.isEmpty()) {
                 adminNameEditText.setError("Empty!!");
                 adminNameEditText.requestFocus();

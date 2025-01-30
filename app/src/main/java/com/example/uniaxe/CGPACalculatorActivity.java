@@ -37,11 +37,14 @@ public class CGPACalculatorActivity extends AppCompatActivity {
                     try {
                         double cgpa = calculateCGPA(gradesText, creditsText);
                         resultTextView.setText(String.format("Your CGPA: %.2f", cgpa));
+                        resultTextView.setVisibility(View.VISIBLE); // Make result visible
                     } catch (Exception e) {
                         Toast.makeText(CGPACalculatorActivity.this, "Invalid input. Ensure grades and credits are properly formatted.", Toast.LENGTH_SHORT).show();
+                        resultTextView.setVisibility(View.GONE); // Hide result if error occurs
                     }
                 } else {
                     Toast.makeText(CGPACalculatorActivity.this, "Please enter both grades and credits.", Toast.LENGTH_SHORT).show();
+                    resultTextView.setVisibility(View.GONE); // Hide result if inputs are empty
                 }
             }
         });
@@ -51,6 +54,7 @@ public class CGPACalculatorActivity extends AppCompatActivity {
         String[] gradesArray = gradesText.split(",");
         String[] creditsArray = creditsText.split(",");
 
+        // Ensure grades and credits arrays have the same length
         if (gradesArray.length != creditsArray.length) {
             throw new IllegalArgumentException("Grades and credits count must match.");
         }
@@ -59,13 +63,19 @@ public class CGPACalculatorActivity extends AppCompatActivity {
         double totalCredits = 0;
 
         for (int i = 0; i < gradesArray.length; i++) {
-            double grade = Double.parseDouble(gradesArray[i].trim());
-            double credit = Double.parseDouble(creditsArray[i].trim());
+            try {
+                // Parse grades and credits, allowing for floating-point numbers
+                double grade = Double.parseDouble(gradesArray[i].trim());
+                double credit = Double.parseDouble(creditsArray[i].trim());
 
-            totalWeightedGrades += grade * credit;
-            totalCredits += credit;
+                totalWeightedGrades += grade * credit;
+                totalCredits += credit;
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("Invalid grade or credit value. Please enter valid numbers.");
+            }
         }
 
+        // Prevent division by zero if totalCredits is 0
         if (totalCredits == 0) {
             throw new ArithmeticException("Total credits cannot be zero.");
         }

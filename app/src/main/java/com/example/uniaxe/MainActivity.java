@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         goToAdminLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AdminDashBoard.class);
+                Intent intent = new Intent(MainActivity.this, AdminSignUp.class);
                 startActivity(intent);
             }
         });

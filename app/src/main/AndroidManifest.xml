@@ -17,6 +17,33 @@
         android:theme="@style/Theme.UNIAXE"
         tools:targetApi="31">
         <activity
+            android:name=".TeacherDashBoard"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateGuideActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReadGuideTeacherActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateGuideTeacherActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TeachDashBoard"
+            android:exported="false" />
+        <activity
+            android:name=".TeachLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StuSyllabusReadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StuReadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StudentDashBoard"
+            android:exported="false" />
+        <activity
             android:name=".AdminDashBoard"
             android:exported="false" />
         <activity

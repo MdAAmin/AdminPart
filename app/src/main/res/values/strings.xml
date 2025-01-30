@@ -1,60 +1,67 @@
 <resources>
     <string name="app_name">UNIAXE</string>
-
     <string name="admin_login">Admin Login</string>
-    <string name="Username">Username\n</string>
-    <string name="passwordRegister">Admin Password</string>
-    <string name="signRegister">Enter</string>
-    <string name="introTitle"><font color="#2B4678">Welcome to \n  Glamour Cottage</font></string>
-    <string name="Subtitle"><font color="#0000000">"Enjoy your shopping with glamour"</font></string>
-    <string name="enter">Enter</string>
-    <string name="login_title">Login!!</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="signRegister">Enter</string>
+    <string name="enter">Enter</string>
+    <string name="login_title">Login!!</string>
     <string name="sign_up">Sign Up</string>
-    <string name="loginTitle">Login</string>
-    <string name="tv_notice">"Don't have an account? Sign up here"</string>
-
     <string name="create_an_account">Create an account</string>
     <string name="phone">Phone</string>
-    <string name="confirm_password">confirm password</string>
-
+    <string name="confirm_password">Confirm Password</string>
     <string name="emailRegister">Email</string>
     <string name="usernameRegister">Username</string>
     <string name="question_bank">Question Bank</string>
     <string name="insert_question">Insert Question</string>
     <string name="view_question">View Question</string>
-    <string name="insert">Insert Question</string>
     <string name="course_name">Course Name</string>
-    <string name="Year">Year</string>
+    <string name="year">Year</string>
     <string name="mid">Mid</string>
-    <string name="Final">Final</string>
     <string name="add_question">Add Question</string>
     <string name="update_question">Update Question</string>
     <string name="delete_question">Delete Question</string>
     <string name="question_id">Question ID</string>
-    <string name="update_que">Update Question</string>
     <string name="updated_course_name">Updated Course Name</string>
     <string name="updated_question_id">Updated Question ID</string>
-    <string name="update_search">Update Search</string>
     <string name="upload_question">Upload Question</string>
-    <string name="to_delete_search_question">To Delete Search Question</string>
-    <string name="course_name_que">Course Name</string>
-    <string name="question_id_del">Question ID</string>
     <string name="search_question">Search Question</string>
-    <string name="delete_question_all">Delete Question</string>
     <string name="pdf_UP">PDF</string>
     <string name="select_pdf">Select PDF</string>
     <string name="upload_pdf">Upload PDF</string>
-    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign Up</string>
     <string name="batch">Batch</string>
     <string name="already_have_an_account_login">Already have an account? Login</string>
     <string name="submit">Submit</string>
     <string name="calculate_your_cgpa">Calculate Your CGPA</string>
-    <string name="enter_credits_of_corresponding_courses_separated_by_commas">Enter credits of corresponding courses separated by commas</string>
-    <string name="enter_cgpa_of_courses_separated_by_commas">Enter CGPA of courses separated by commas</string>
+    <string name="enter_credits_of_corresponding_courses_separated_by_commas">
+</string>
+    <string name="enter_cgpa_of_courses_separated_by_commas">
+</string>
     <string name="calculate_cgpa">Calculate CGPA</string>
     <string name="result_will_appear_here">Result will appear here</string>
-    <string name="insert_pdf">Insert Pdf</string>
+    <string name="add_your_note">Add Your Note</string>
+    <string name="course_id_n">Course ID</string>
+    <string name="note_submission">Note Submission</string>
+    <string name="guideline_for_students">Guideline For Students</string>
+    <string name="pdf_title">PDF Title</string>
+    <string name="no_data_found">No data found</string>
+    <string name="course_outline_submission">Course Outline Submission</string>
+    <string name="read_course_outline">Read Course Outline</string>
+    <string name="edit_item">Edit Item</string>
+    <string name="title_g">Title</string>
+    <string name="subtitle_g">Subtitle</string>
+    <string name="select_pdf_g">Select PDF</string>
+    <string name="update_g">Update</string>
+    <string name="update_course_outline">Update Course Outline</string>
+    <string name="read_course_outline_stu">Read Course Outline Student</string>
+    <string name="read_your_guideline">Read Your Guideline</string>
+    <string name="course_name_gui">Course Name</string>
+    <string name="course_id">Course ID</string>
+    <string name="batch_info">Batch Info</string>
+    <string name="teacher_login">Teacher Login</string>
+    <string name="teacher_name">Teacher Name</string>
+    <string name="course_name_n">Course Name</string>
+    <string name="login">Login</string>
+    <string name="do_not_have_an_account">Do not have an account?</string>
 
 </resources>
