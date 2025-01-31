@@ -3,7 +3,7 @@ package com.example.uniaxe;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,15 +15,13 @@ public class AdminDashBoard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dash_board);
 
-        // Initialize buttons
-        Button btnCreate = findViewById(R.id.btnCreate);
-        Button btnRead = findViewById(R.id.btnRead);
-        Button btnUpdate = findViewById(R.id.btnUpdate);
+        // Initialize ImageViews (to make them clickable)
+        ImageView btnCreate = findViewById(R.id.btnCreate);
+        ImageView btnRead = findViewById(R.id.btnRead);
 
-        // Set click listeners for each button
+        // Set click listeners for each ImageView
         btnCreate.setOnClickListener(v -> openCreateActivity());
         btnRead.setOnClickListener(v -> openReadActivity());
-        btnUpdate.setOnClickListener(v -> openUpdateActivity());
     }
 
     // Method to open CreateActivity
@@ -38,9 +36,5 @@ public class AdminDashBoard extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // Method to open UpdateActivity
-    private void openUpdateActivity() {
-        Intent intent = new Intent(AdminDashBoard.this, UpdateActivity.class);
-        startActivity(intent);
-    }
+
 }
