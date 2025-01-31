@@ -8,7 +8,7 @@
     android:layout_marginBottom="8dp"
     android:background="@drawable/border">
 
-    <!-- First Row -->
+    <!-- First Row (Course ID and Course Name in the same row) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Course ID"
+            android:background="@drawable/shape1"
             android:textColor="#000000"
             android:textSize="16sp" />
 
@@ -31,20 +32,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Course Name"
-            android:textColor="#000000"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/examType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Exam Type"
+            android:background="@drawable/shape2"
             android:textColor="#000000"
             android:textSize="16sp" />
     </LinearLayout>
 
-    <!-- Second Row -->
+    <!-- Second Row (Exam Type, Semester, and Year in the same row) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,13 +46,35 @@
         android:layout_marginBottom="8dp">
 
         <TextView
+            android:id="@+id/examType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Exam Type"
+            android:background="@drawable/shape3"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <TextView
             android:id="@+id/semester"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Semester"
+            android:background="@drawable/shape4"
             android:textColor="#000000"
             android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+    <!-- Third Row (PDF Type) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/eds"
+        android:layout_marginBottom="8dp">
 
         <TextView
             android:id="@+id/year"
@@ -68,6 +83,7 @@
             android:layout_weight="1"
             android:text="Year"
             android:textColor="#000000"
+            android:background="@drawable/shape5"
             android:textSize="16sp" />
 
         <TextView
@@ -77,6 +93,7 @@
             android:layout_weight="1"
             android:text="PDF Type"
             android:textColor="#000000"
+            android:background="@drawable/shape6"
             android:textSize="16sp" />
     </LinearLayout>
 

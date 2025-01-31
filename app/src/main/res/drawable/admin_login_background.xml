@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="1080dp"
+    android:height="1920dp"
+    android:viewportWidth="1080"
+    android:viewportHeight="1920">
+
+    <!-- First Wave (Purple) -->
+    <path
+        android:fillColor="#6D247A"
+        android:pathData="M0,0 L1080,0 L1080,500 Q540,800 0,500 Z" />
+
+    <!-- Second Wave (Yellow) -->
+    <path
+        android:fillColor="#EBC75F"
+        android:pathData="M0,500 Q540,800 1080,500 L1080,1100 Q540,1300 0,1100 Z" />
+
+    <!-- Third Wave (Peach) -->
+    <path
+        android:fillColor="#F7A899"
+        android:pathData="M0,1100 Q540,1300 1080,1100 L1080,1920 L0,1920 Z" />
+</vector>

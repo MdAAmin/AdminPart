@@ -1,0 +1,6 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FFB6C1" /> <!-- Light Pink -->
+    <corners android:radius="6dp" />
+    <stroke android:color="#FF69B4" android:width="2dp" /> <!-- Border color and width -->
+    <padding android:left="10dp" android:top="16dp" android:right="20dp" android:bottom="16dp" />
+</shape>
