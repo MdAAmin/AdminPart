@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="360dp"
+    android:height="250dp"
+    android:viewportWidth="360"
+    android:viewportHeight="250">
+
+    <!-- Wave 1 (Darkest) -->
+    <path
+        android:fillColor="#1976D2"
+        android:pathData="M0,150 Q60,100 120,150 T240,150 T360,150 V250 H0 Z" />
+
+    <!-- Wave 2 -->
+    <path
+        android:fillColor="#2196F3"
+        android:pathData="M0,140 Q60,90 120,140 T240,140 T360,140 V250 H0 Z"
+        android:alpha="0.9"/>
+
+    <!-- Wave 3 -->
+    <path
+        android:fillColor="#42A5F5"
+        android:pathData="M0,130 Q60,80 120,130 T240,130 T360,130 V250 H0 Z"
+        android:alpha="0.8"/>
+
+    <!-- Wave 4 -->
+    <path
+        android:fillColor="#64B5F6"
+        android:pathData="M0,120 Q60,70 120,120 T240,120 T360,120 V250 H0 Z"
+        android:alpha="0.7"/>
+
+    <!-- Wave 5 -->
+    <path
+        android:fillColor="#90CAF9"
+        android:pathData="M0,110 Q60,60 120,110 T240,110 T360,110 V250 H0 Z"
+        android:alpha="0.6"/>
+
+    <!-- Wave 6 -->
+    <path
+        android:fillColor="#BBDEFB"
+        android:pathData="M0,100 Q60,50 120,100 T240,100 T360,100 V250 H0 Z"
+        android:alpha="0.5"/>
+
+    <!-- Wave 7 -->
+    <path
+        android:fillColor="#E3F2FD"
+        android:pathData="M0,90 Q60,40 120,90 T240,90 T360,90 V250 H0 Z"
+        android:alpha="0.4"/>
+
+    <!-- Wave 8 -->
+    <path
+        android:fillColor="#E1F5FE"
+        android:pathData="M0,80 Q60,30 120,80 T240,80 T360,80 V250 H0 Z"
+        android:alpha="0.3"/>
+
+    <!-- Wave 9 -->
+    <path
+        android:fillColor="#B3E5FC"
+        android:pathData="M0,70 Q60,20 120,70 T240,70 T360,70 V250 H0 Z"
+        android:alpha="0.2"/>
+
+    <!-- Wave 10 (Lightest) -->
+    <path
+        android:fillColor="#81D4FA"
+        android:pathData="M0,60 Q60,10 120,60 T240,60 T360,60 V250 H0 Z"
+        android:alpha="0.1"/>
+</vector>

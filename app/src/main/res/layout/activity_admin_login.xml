@@ -17,7 +17,7 @@
         android:text="Welcome Back"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@android:color/white"
+        android:textColor="@color/black"
         android:layout_marginTop="100dp"/>
 
     <!-- Email Field -->
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Email"
-        android:background="@drawable/rounded_input"
+        android:background="@drawable/edit_text_box2"
         android:padding="10dp"
         android:inputType="textEmailAddress"
         android:layout_marginTop="20dp"
@@ -58,7 +58,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/round_button"
         android:text="→"
-        android:textColor="@android:color/white"
+        android:textColor="@color/white"
         android:textSize="24sp"/>
 
     <!-- Sign Up Link -->

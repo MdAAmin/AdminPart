@@ -10,163 +10,160 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_margin="8dp"
-        android:background="@drawable/eds"
+        android:layout_margin="16dp"
+        android:background="@drawable/top_circle"
         android:gravity="center">
 
+        <!-- Admin SignUp Title -->
         <TextView
             android:id="@+id/adminTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Admin SignUp"
             android:textAlignment="center"
-            android:textSize="24sp"
-            android:layout_marginBottom="8dp"
-            android:textColor="#1A73E8"
-            android:textStyle="bold" />
+            android:textSize="28sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
 
+        <!-- Admin Input Fields -->
         <LinearLayout
             android:id="@+id/adminInputLayout"
-            android:layout_width="match_parent"
+            android:layout_width="351dp"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_box2"
-            android:padding="12dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
+            <!-- Admin Name Field -->
             <EditText
                 android:id="@+id/adminName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/border"
                 android:hint="Enter Admin Name"
                 android:inputType="text"
-                android:minHeight="48dp"
+                android:padding="12dp"
                 android:textColor="#37474F"
                 android:textColorHint="#B0BEC5"
-                android:padding="15dp"
-                android:background="@drawable/border"
-                android:layout_marginBottom="10dp" />
+                android:textSize="16sp" />
 
+            <!-- Admin Email Field -->
             <EditText
                 android:id="@+id/adminEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/border"
                 android:hint="Enter Email"
                 android:inputType="textEmailAddress"
-                android:minHeight="48dp"
+                android:padding="12dp"
                 android:textColor="#37474F"
                 android:textColorHint="#B0BEC5"
-                android:padding="15dp"
-                android:background="@drawable/border"
-                android:layout_marginBottom="10dp" />
+                android:textSize="16sp" />
 
             <!-- Password Field with Eye Toggle -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 app:endIconMode="password_toggle"
-                app:endIconTint="#37474F"
-                android:layout_marginBottom="10dp">
+                app:endIconTint="#37474F">
 
                 <EditText
                     android:id="@+id/adminPass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/border"
                     android:hint="Enter Password"
                     android:inputType="textPassword"
-                    android:minHeight="48dp"
+                    android:padding="12dp"
                     android:textColor="#37474F"
                     android:textColorHint="#B0BEC5"
-                    android:padding="15dp"
-                    android:background="@drawable/border" />
+                    android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Confirm Password Field with Eye Toggle -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 app:endIconMode="password_toggle"
-                app:endIconTint="#37474F"
-                android:layout_marginBottom="10dp">
+                app:endIconTint="#37474F">
 
                 <EditText
                     android:id="@+id/adminConfirmPass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/border"
                     android:hint="Confirm Password"
                     android:inputType="textPassword"
-                    android:minHeight="48dp"
+                    android:padding="12dp"
                     android:textColor="#37474F"
                     android:textColorHint="#B0BEC5"
-                    android:padding="15dp"
-                    android:background="@drawable/border" />
+                    android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- ID Number Field -->
             <EditText
                 android:id="@+id/adminIdNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/border"
                 android:hint="Enter ID Number"
                 android:inputType="phone"
-                android:minHeight="48dp"
+                android:padding="12dp"
                 android:textColor="#37474F"
                 android:textColorHint="#B0BEC5"
-                android:padding="15dp"
-                android:background="@drawable/border"
-                android:layout_marginBottom="10dp" />
+                android:textSize="16sp" />
 
-            <EditText
-                android:id="@+id/adminDefaultName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter Default Admin Name"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:textColor="#37474F"
-                android:textColorHint="#B0BEC5"
-                android:padding="15dp"
-                android:background="@drawable/border"
-                android:layout_marginBottom="10dp" />
 
-            <!-- Default Admin Password Field with Eye Toggle -->
+            <!-- Default Admin Password -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 app:endIconMode="password_toggle"
-                app:endIconTint="#37474F"
-                android:layout_marginBottom="10dp">
+                app:endIconTint="#37474F">
 
                 <EditText
                     android:id="@+id/adminDefaultPass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/border"
                     android:hint="Enter Default Admin Password"
                     android:inputType="textPassword"
-                    android:minHeight="48dp"
+                    android:padding="12dp"
                     android:textColor="#37474F"
                     android:textColorHint="#B0BEC5"
-                    android:padding="15dp"
-                    android:background="@drawable/border" />
+                    android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
 
+        <!-- Submit Button -->
         <Button
             android:id="@+id/adminSubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sign Up"
             android:textColor="#FFFFFF"
-            android:layout_marginTop="24dp"
             android:backgroundTint="#1E88E5"
             android:textStyle="bold"
-            android:elevation="8dp" />
+            android:elevation="8dp"
+            android:layout_marginTop="24dp" />
 
+        <!-- ProgressBar (hidden by default) -->
         <ProgressBar
             android:id="@+id/adminProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone" />
+            android:visibility="gone"
+            android:layout_centerInParent="true" />
 
+        <!-- Login Link -->
         <TextView
             android:id="@+id/adminAlreadyRegistered"
             android:layout_width="wrap_content"
@@ -177,7 +174,9 @@
             android:focusable="true"
             android:minHeight="48dp"
             android:text="Already Registered? Login"
-            android:textColor="@android:color/holo_blue_dark"
+            android:textColor="@color/white"
             android:textSize="16sp" />
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,47 +22,47 @@ import java.util.Map;
 import java.util.Objects;
 
 public class AdminSignUp extends AppCompatActivity {
-    private EditText adminNameEditText, emailEditText, passEditText, confirmPassEditText, idNumEditText, defAdminNameEditText, defAdminPassEditText;
-    private String adminName, email, pass, confirmPass, idNum, defAdminName, defAdminPass;
+    private EditText adminNameEditText, emailEditText, passEditText, confirmPassEditText, idNumEditText, defAdminPassEditText;
+    private String adminName, email, pass, confirmPass, idNum, defAdminPass;
     private ProgressBar progressBar;
 
     private FirebaseAuth auth;
     private FirebaseFirestore firestore;
 
     // Default admin credentials
-    private static final String DEFAULT_NAME = "HAS";
-    private static final String DEFAULT_PASS = "12345aA@";
+    private static final String DEFAULT_PASS = "HASa123@";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_sign_up);
 
+        // Initialize EditTexts and Views
         adminNameEditText = findViewById(R.id.adminName);
         emailEditText = findViewById(R.id.adminEmail);
         passEditText = findViewById(R.id.adminPass);
         confirmPassEditText = findViewById(R.id.adminConfirmPass);
         idNumEditText = findViewById(R.id.adminIdNum);
-        defAdminNameEditText = findViewById(R.id.adminDefaultName); // New input field for default name
-        defAdminPassEditText = findViewById(R.id.adminDefaultPass); // New input field for default pass
+        defAdminPassEditText = findViewById(R.id.adminDefaultPass); // Correct reference here
         Button submit = findViewById(R.id.adminSubmit);
         TextView login = findViewById(R.id.adminAlreadyRegistered);
         progressBar = findViewById(R.id.adminProgressBar);
 
+        // Initialize Firebase
         auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 
         submit.setOnClickListener(v -> {
+            // Get data from input fields
             adminName = adminNameEditText.getText().toString().trim();
             email = emailEditText.getText().toString().trim();
             pass = passEditText.getText().toString().trim();
             confirmPass = confirmPassEditText.getText().toString().trim();
             idNum = idNumEditText.getText().toString().trim();
-            defAdminName = defAdminNameEditText.getText().toString().trim();
             defAdminPass = defAdminPassEditText.getText().toString().trim();
 
-            // Validate the default admin name and password first
-            if (!DEFAULT_NAME.equals(defAdminName) || !DEFAULT_PASS.equals(defAdminPass)) {
+            // Validate the default admin password first
+            if (!DEFAULT_PASS.equals(defAdminPass)) {
                 Toast.makeText(AdminSignUp.this, "Invalid default admin credentials. Please try again.", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -88,6 +88,7 @@ public class AdminSignUp extends AppCompatActivity {
                 idNumEditText.requestFocus();
             } else {
                 progressBar.setVisibility(View.VISIBLE);
+                // Create user with email and password
                 auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(task -> {
                     progressBar.setVisibility(View.GONE);
                     if (task.isSuccessful()) {
@@ -101,6 +102,7 @@ public class AdminSignUp extends AppCompatActivity {
                         adminInfo.put("idNum", idNum);
                         adminInfo.put("uid", user.getUid());
 
+                        // Save admin info to Firestore
                         df.set(adminInfo);
                         Toast.makeText(getApplicationContext(), "Successfully Registered!!", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), AdminLogin.class));
@@ -122,6 +124,7 @@ public class AdminSignUp extends AppCompatActivity {
         });
     }
 
+    // Send email verification
     private void sendEmailVerification(FirebaseUser user) {
         if (user != null && !user.isEmailVerified()) {
             user.sendEmailVerification()

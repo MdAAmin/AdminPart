@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="360dp"
+    android:height="300dp"
+    android:viewportWidth="360"
+    android:viewportHeight="300">
+
+    <!-- Generate 30 Waves -->
+    <path android:fillColor="#1976D2" android:pathData="M0,280 Q20,270 40,280 T80,280 T120,280 T160,280 T200,280 T240,280 T280,280 T320,280 T360,280 V300 H0 Z" />
+    <path android:fillColor="#1E88E5" android:pathData="M0,270 Q20,260 40,270 T80,270 T120,270 T160,270 T200,270 T240,270 T280,270 T320,270 T360,270 V300 H0 Z" android:alpha="0.95"/>
+    <path android:fillColor="#2196F3" android:pathData="M0,260 Q20,250 40,260 T80,260 T120,260 T160,260 T200,260 T240,260 T280,260 T320,260 T360,260 V300 H0 Z" android:alpha="0.90"/>
+    <path android:fillColor="#42A5F5" android:pathData="M0,250 Q20,240 40,250 T80,250 T120,250 T160,250 T200,250 T240,250 T280,250 T320,250 T360,250 V300 H0 Z" android:alpha="0.85"/>
+    <path android:fillColor="#64B5F6" android:pathData="M0,240 Q20,230 40,240 T80,240 T120,240 T160,240 T200,240 T240,240 T280,240 T320,240 T360,240 V300 H0 Z" android:alpha="0.80"/>
+    <path android:fillColor="#90CAF9" android:pathData="M0,230 Q20,220 40,230 T80,230 T120,230 T160,230 T200,230 T240,230 T280,230 T320,230 T360,230 V300 H0 Z" android:alpha="0.75"/>
+    <path android:fillColor="#BBDEFB" android:pathData="M0,220 Q20,210 40,220 T80,220 T120,220 T160,220 T200,220 T240,220 T280,220 T320,220 T360,220 V300 H0 Z" android:alpha="0.70"/>
+    <path android:fillColor="#E3F2FD" android:pathData="M0,210 Q20,200 40,210 T80,210 T120,210 T160,210 T200,210 T240,210 T280,210 T320,210 T360,210 V300 H0 Z" android:alpha="0.65"/>
+    <path android:fillColor="#E1F5FE" android:pathData="M0,200 Q20,190 40,200 T80,200 T120,200 T160,200 T200,200 T240,200 T280,200 T320,200 T360,200 V300 H0 Z" android:alpha="0.60"/>
+    <path android:fillColor="#B3E5FC" android:pathData="M0,190 Q20,180 40,190 T80,190 T120,190 T160,190 T200,190 T240,190 T280,190 T320,190 T360,190 V300 H0 Z" android:alpha="0.55"/>
+    <path android:fillColor="#81D4FA" android:pathData="M0,180 Q20,170 40,180 T80,180 T120,180 T160,180 T200,180 T240,180 T280,180 T320,180 T360,180 V300 H0 Z" android:alpha="0.50"/>
+    <path android:fillColor="#4FC3F7" android:pathData="M0,170 Q20,160 40,170 T80,170 T120,170 T160,170 T200,170 T240,170 T280,170 T320,170 T360,170 V300 H0 Z" android:alpha="0.45"/>
+    <path android:fillColor="#29B6F6" android:pathData="M0,160 Q20,150 40,160 T80,160 T120,160 T160,160 T200,160 T240,160 T280,160 T320,160 T360,160 V300 H0 Z" android:alpha="0.40"/>
+    <path android:fillColor="#03A9F4" android:pathData="M0,150 Q20,140 40,150 T80,150 T120,150 T160,150 T200,150 T240,150 T280,150 T320,150 T360,150 V300 H0 Z" android:alpha="0.35"/>
+    <path android:fillColor="#0288D1" android:pathData="M0,140 Q20,130 40,140 T80,140 T120,140 T160,140 T200,140 T240,140 T280,140 T320,140 T360,140 V300 H0 Z" android:alpha="0.30"/>
+    <path android:fillColor="#0277BD" android:pathData="M0,130 Q20,120 40,130 T80,130 T120,130 T160,130 T200,130 T240,130 T280,130 T320,130 T360,130 V300 H0 Z" android:alpha="0.25"/>
+    <path android:fillColor="#01579B" android:pathData="M0,120 Q20,110 40,120 T80,120 T120,120 T160,120 T200,120 T240,120 T280,120 T320,120 T360,120 V300 H0 Z" android:alpha="0.20"/>
+</vector>

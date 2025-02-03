@@ -1,28 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/teacherDrawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:gravity="center"
-    tools:context=".TeachDashBoard"
-    android:padding="20dp">
+    tools:openDrawer="start"
+    android:fitsSystemWindows="true"
+    tools:context=".TeacherDashBoard">
 
-    <Button
-        android:id="@+id/btnCreateTeacher"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#F1F1F1"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/top_circle">
+
+            <ImageButton
+                android:id="@+id/navToggleTechButton"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/round_menu_24"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teacher Dashboard"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:orientation="vertical"
+            android:gravity="center">
+
+          <ImageView
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:src="@drawable/pic3"/>
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/bottom_shape"
+            android:gravity="center">
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/teacherNavigationView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create Teacher"
-        android:padding="10dp"
-        android:textSize="16sp" />
-
-    <Button
-        android:id="@+id/btnReadGuide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Read Guide Teacher"
-        android:padding="10dp"
-        android:textSize="16sp"
-        android:layout_marginTop="16dp"/>
-
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/teacher_nav_menu" />
+</androidx.drawerlayout.widget.DrawerLayout>

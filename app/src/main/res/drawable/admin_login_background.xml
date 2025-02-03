@@ -7,7 +7,7 @@
 
     <!-- First Wave (Purple) -->
     <path
-        android:fillColor="#6D247A"
+        android:fillColor="#FFFFCC"
         android:pathData="M0,0 L1080,0 L1080,500 Q540,800 0,500 Z" />
 
     <!-- Second Wave (Yellow) -->
@@ -17,6 +17,6 @@
 
     <!-- Third Wave (Peach) -->
     <path
-        android:fillColor="#F7A899"
+        android:fillColor="#CCFFE6"
         android:pathData="M0,1100 Q540,1300 1080,1100 L1080,1920 L0,1920 Z" />
 </vector>
