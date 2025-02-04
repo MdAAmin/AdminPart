@@ -41,8 +41,8 @@ public class TeacherCustomAdapter extends RecyclerView.Adapter<TeacherCustomAdap
 
         // Set the data with labels
         holder.techName.setText("Teacher: " + modelTeacher.getTeacherName());
-        holder.couName.setText("Cou. Name: " + modelTeacher.getCouName());
-        holder.couId.setText("Cou. ID: " + modelTeacher.getCouId());
+        holder.couName.setText("Course Name: " + modelTeacher.getCouName());
+        holder.couId.setText("Course ID: " + modelTeacher.getCouId());
         holder.batch.setText("Batch: " + modelTeacher.getBatch());
 
         // Handle PDF opening
@@ -69,7 +69,8 @@ public class TeacherCustomAdapter extends RecyclerView.Adapter<TeacherCustomAdap
                     intent.putExtra("key", modelTeacher.getKey());
                     intent.putExtra("couName", modelTeacher.getCouName());
                     intent.putExtra("couId", modelTeacher.getCouId());
-                    intent.putExtra("syllabusUrl", modelTeacher.getSyllabusUrl()); // Corrected field name
+                    intent.putExtra("batch", modelTeacher.getBatch());
+                    intent.putExtra("pdfUrl", modelTeacher.getSyllabusUrl());
                     context.startActivity(intent);
                     return true;
                 } else if (item.getItemId() == R.id.delete) {

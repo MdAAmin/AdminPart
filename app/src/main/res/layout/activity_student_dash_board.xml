@@ -57,50 +57,16 @@
             android:orientation="horizontal"
             android:gravity="center">
 
-            <!-- Create Button -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="8dp"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="16dp">
-
                 <ImageView
                     android:id="@+id/navCreate"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/pic4"
                     android:contentDescription="Create"
                     android:clickable="true"
-                    android:focusable="true"
-                    android:background="@drawable/border" />
-
-
-            </LinearLayout>
-
-            <!-- Read Button -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="8dp"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="16dp">
-
-                <ImageView
-                    android:id="@+id/navRead"
-                    android:layout_width="64dp"
-                    android:src="@drawable/pic5"
-                    android:layout_height="64dp"
-                    android:contentDescription="Read|Update|Delete"
-                    android:clickable="true"
+                    android:layout_gravity="center"
                     android:focusable="true" />
 
-
-            </LinearLayout>
 
         </LinearLayout>
 
