@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/admin_login_background"
     android:orientation="vertical"
     android:gravity="center_horizontal"
+    android:padding="20dp"
+    android:background="@drawable/admin_login_background"
     tools:context=".AdminLogin">
 
     <!-- Welcome Text -->
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,69 +19,78 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="80dp"/>
 
     <!-- Email Field -->
-    <EditText
-        android:id="@+id/adminEmail"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Email"
-        android:background="@drawable/edit_text_box2"
-        android:padding="10dp"
-        android:inputType="textEmailAddress"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="30dp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        app:boxStrokeColor="@color/black"
+        app:boxBackgroundMode="filled">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/adminEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Password Field -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:passwordToggleEnabled="true"
         android:layout_marginTop="15dp"
-        android:layout_marginHorizontal="30dp">
+        app:endIconMode="password_toggle"
+        app:boxStrokeColor="@color/black"
+        app:boxBackgroundMode="filled">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/adminPass"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:hint="Password"
-            android:background="@drawable/rounded_input"
-            android:padding="10dp"
             android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Sign In Button (Centered) -->
-    <Button
+    <!-- Sign In Button -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/adminLogin"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:background="@drawable/round_button"
-        android:text="→"
+        android:text="Sign In"
+        app:cornerRadius="50dp"
+        android:textSize="16sp"
         android:textColor="@color/white"
-        android:textSize="24sp"/>
+        app:backgroundTint="@color/black"/>
 
     <!-- Sign Up Link -->
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/adminSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/do_not_have_an_account"
         android:textAlignment="center"
+        android:textSize="14sp"
+        android:textColor="@color/black"
         android:layout_marginTop="20dp"/>
 
     <!-- Progress Bar -->
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <ProgressBar
+        <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/progressBar"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:indicatorSize="50dp"
+            app:trackColor="#D3D3D3"
+            app:indicatorColor="@color/black"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </LinearLayout>

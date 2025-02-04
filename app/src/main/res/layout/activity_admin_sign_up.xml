@@ -26,42 +26,58 @@
             android:textStyle="bold"
             android:layout_marginBottom="24dp" />
 
-        <!-- Admin Input Fields -->
+
         <LinearLayout
             android:id="@+id/adminInputLayout"
             android:layout_width="351dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/edit_text_box2"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:background="@drawable/edit_text_box2">
 
             <!-- Admin Name Field -->
-            <EditText
-                android:id="@+id/adminName"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/border"
-                android:hint="Enter Admin Name"
-                android:inputType="text"
-                android:padding="12dp"
-                android:textColor="#37474F"
-                android:textColorHint="#B0BEC5"
-                android:textSize="16sp" />
+                app:boxStrokeColor="#FFEB3B"
+                app:boxBackgroundMode="filled"
+                app:hintTextColor="#B0BEC5">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/adminName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Admin Name"
+                    android:inputType="text"
+                    android:padding="12dp"
+                    android:textColor="#37474F"
+                    android:textColorHint="#B0BEC5"
+                    android:textSize="16sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Admin Email Field -->
-            <EditText
-                android:id="@+id/adminEmail"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/border"
-                android:hint="Enter Email"
-                android:inputType="textEmailAddress"
-                android:padding="12dp"
-                android:textColor="#37474F"
-                android:textColorHint="#B0BEC5"
-                android:textSize="16sp" />
+                app:boxStrokeColor="#FFEB3B"
+                app:boxBackgroundMode="filled"
+                app:hintTextColor="#B0BEC5">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/adminEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Email"
+                    android:inputType="textEmailAddress"
+                    android:padding="12dp"
+                    android:textColor="#37474F"
+                    android:textColorHint="#B0BEC5"
+                    android:textSize="16sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Password Field with Eye Toggle -->
             <com.google.android.material.textfield.TextInputLayout
@@ -69,19 +85,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 app:endIconMode="password_toggle"
-                app:endIconTint="#37474F">
+                app:endIconTint="#37474F"
+                app:boxStrokeColor="#FFEB3B"
+                app:boxBackgroundMode="filled"
+                app:hintTextColor="#B0BEC5">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/adminPass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border"
                     android:hint="Enter Password"
                     android:inputType="textPassword"
-                    android:padding="12dp"
                     android:textColor="#37474F"
                     android:textColorHint="#B0BEC5"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:padding="12dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Confirm Password Field with Eye Toggle -->
@@ -90,35 +108,44 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 app:endIconMode="password_toggle"
-                app:endIconTint="#37474F">
+                app:endIconTint="#37474F"
+                app:boxStrokeColor="#FFEB3B"
+                app:boxBackgroundMode="filled"
+                app:hintTextColor="#B0BEC5">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/adminConfirmPass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border"
                     android:hint="Confirm Password"
                     android:inputType="textPassword"
-                    android:padding="12dp"
                     android:textColor="#37474F"
                     android:textColorHint="#B0BEC5"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:padding="12dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- ID Number Field -->
-            <EditText
-                android:id="@+id/adminIdNum"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/border"
-                android:hint="Enter ID Number"
-                android:inputType="phone"
-                android:padding="12dp"
-                android:textColor="#37474F"
-                android:textColorHint="#B0BEC5"
-                android:textSize="16sp" />
+                app:boxStrokeColor="#FFEB3B"
+                app:boxBackgroundMode="filled"
+                app:hintTextColor="#B0BEC5">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/adminIdNum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter ID Number"
+                    android:inputType="phone"
+                    android:padding="12dp"
+                    android:textColor="#37474F"
+                    android:textColorHint="#B0BEC5"
+                    android:textSize="16sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Default Admin Password -->
             <com.google.android.material.textfield.TextInputLayout
@@ -126,22 +153,25 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 app:endIconMode="password_toggle"
-                app:endIconTint="#37474F">
+                app:endIconTint="#37474F"
+                app:boxStrokeColor="#FFEB3B"
+                app:boxBackgroundMode="filled"
+                app:hintTextColor="#B0BEC5">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/adminDefaultPass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border"
                     android:hint="Enter Default Admin Password"
                     android:inputType="textPassword"
-                    android:padding="12dp"
                     android:textColor="#37474F"
                     android:textColorHint="#B0BEC5"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:padding="12dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
+
 
         <!-- Submit Button -->
         <Button
