@@ -67,7 +67,6 @@
                     android:layout_gravity="center"
                     android:focusable="true" />
 
-
         </LinearLayout>
 
         <!-- Bottom Section with Shape -->

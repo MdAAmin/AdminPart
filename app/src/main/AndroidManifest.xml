@@ -28,9 +28,7 @@
         <activity
             android:name=".CreateGuideTeacherActivity"
             android:exported="false" />
-        <activity
-            android:name=".TeachDashBoard"
-            android:exported="false" />
+
         <activity
             android:name=".TeachLoginActivity"
             android:exported="false" />
