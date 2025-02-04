@@ -35,7 +35,7 @@
             android:text="Course Name"
             android:background="@drawable/shape2"
             android:textColor="#000000"
-            android:textSize="10sp" />
+            android:textSize="9sp" />
     </LinearLayout>
 
     <!-- Second Row (Exam Type, Semester) -->
