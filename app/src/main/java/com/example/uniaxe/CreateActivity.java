@@ -71,7 +71,7 @@ public class CreateActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
 
         // Set up the Spinner with semester options
-        String[] semesters = {"Select a Semester", "Fall", "Summer", "Winter"};
+        String[] semesters = {"Select a Semester", "Fall", "Summer", "Spring"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, semesters);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);

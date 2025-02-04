@@ -9,6 +9,7 @@
     android:background="@drawable/border">
 
     <!-- First Row (Course ID and Course Name in the same row) -->
+    <!-- First Row (Course ID, Course Name) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,7 +19,7 @@
 
         <TextView
             android:id="@+id/courseId"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Course ID"
@@ -28,7 +29,7 @@
 
         <TextView
             android:id="@+id/courseName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Course Name"
@@ -37,7 +38,7 @@
             android:textSize="10sp" />
     </LinearLayout>
 
-    <!-- Second Row (Exam Type, Semester, and Year in the same row) -->
+    <!-- Second Row (Exam Type, Semester) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,7 +48,7 @@
 
         <TextView
             android:id="@+id/examType"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Exam Type"
@@ -57,18 +58,16 @@
 
         <TextView
             android:id="@+id/semester"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Semester"
             android:background="@drawable/shape4"
             android:textColor="#000000"
             android:textSize="10sp" />
-
-
     </LinearLayout>
 
-    <!-- Third Row (PDF Type) -->
+    <!-- Third Row (Year, PDF Type) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,7 +77,7 @@
 
         <TextView
             android:id="@+id/year"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Year"
@@ -88,7 +87,7 @@
 
         <TextView
             android:id="@+id/pdfType"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="PDF Type"
@@ -96,5 +95,6 @@
             android:background="@drawable/shape6"
             android:textSize="10sp" />
     </LinearLayout>
+
 
 </LinearLayout>
