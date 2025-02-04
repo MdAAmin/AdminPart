@@ -38,6 +38,7 @@ public class StuSignUp extends AppCompatActivity {
     private static final String EMAIL_REGEX = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"; // Email validation
     private static final String PASSWORD_REGEX = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"; // Password must have letters, numbers, and special characters
     private static final String ID_REGEX = "^[0-9]{18}$"; // ID must be numeric with exactly 18 digits
+    private static final String BATCH_REGEX = "^[0-9]+$"; // Batch must be numeric
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,6 +144,10 @@ public class StuSignUp extends AppCompatActivity {
             return false;
         } else if (batch.isEmpty()) {
             batchEditText.setError("Batch is required!");
+            batchEditText.requestFocus();
+            return false;
+        } else if (!Pattern.matches(BATCH_REGEX, batch)) {
+            batchEditText.setError("Batch must be numeric!");
             batchEditText.requestFocus();
             return false;
         } else if (id.isEmpty()) {
