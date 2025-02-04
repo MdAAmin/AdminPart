@@ -39,13 +39,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Model model = data.get(position);
 
-        // Set the data for the fields in each item
-        holder.courseId.setText(model.getCourseId());
-        holder.courseName.setText(model.getCourseName());
-        holder.examType.setText(model.getExamType());
-        holder.semester.setText(model.getSemester());
-        holder.year.setText(model.getYear());
-        holder.pdfType.setText(model.getPdfType());
+        // Set values in separate lines
+        holder.courseName.setText("Cou. Name: " + model.getCourseName());
+        holder.courseId.setText("Cou. ID: " + model.getCourseId());
+        holder.examType.setText("Exam: " + model.getExamType());
+        holder.semester.setText("Semester: " + model.getSemester());
+        holder.year.setText("Year: " + model.getYear());
+        holder.pdfType.setText("PDF Type: " + model.getPdfType());
 
         // Handle item click to open the PDF
         holder.itemView.setOnClickListener(v -> {
@@ -83,12 +83,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                             .child(model.getKey())
                             .removeValue()
                             .addOnSuccessListener(unused -> {
-                                // Display the success toast
                                 Toast.makeText(context, "Deleted successfully!", Toast.LENGTH_SHORT).show();
-
-                                // Navigate to AdminDashBoard activity
                                 Intent intent = new Intent(context, AdminDashBoard.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // To start a new activity
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 context.startActivity(intent);
                             })
                             .addOnFailureListener(e ->
@@ -96,7 +93,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                     return true;
                 }
                 return false;
-
             });
 
             popupMenu.show();
@@ -110,12 +106,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView courseId, courseName, examType, semester, year, pdfType;
+        TextView courseName, courseId, examType, semester, year, pdfType;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            courseId = itemView.findViewById(R.id.courseId);
             courseName = itemView.findViewById(R.id.courseName);
+            courseId = itemView.findViewById(R.id.courseId);
             examType = itemView.findViewById(R.id.examType);
             semester = itemView.findViewById(R.id.semester);
             year = itemView.findViewById(R.id.year);

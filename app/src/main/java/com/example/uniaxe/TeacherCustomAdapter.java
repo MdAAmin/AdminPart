@@ -39,12 +39,13 @@ public class TeacherCustomAdapter extends RecyclerView.Adapter<TeacherCustomAdap
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ModelTeacher modelTeacher = data.get(position);
 
-        holder.techName.setText(modelTeacher.getTeacherName()); // Set the teacher name
-        holder.couName.setText(modelTeacher.getCouName());
-        holder.couId.setText(modelTeacher.getCouId());
-        holder.batch.setText(modelTeacher.getBatch());
+        // Set the data with labels
+        holder.techName.setText("Teacher: " + modelTeacher.getTeacherName());
+        holder.couName.setText("Cou. Name: " + modelTeacher.getCouName());
+        holder.couId.setText("Cou. ID: " + modelTeacher.getCouId());
+        holder.batch.setText("Batch: " + modelTeacher.getBatch());
 
-
+        // Handle PDF opening
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setDataAndType(Uri.parse(modelTeacher.getSyllabusUrl()), "application/pdf");
@@ -57,6 +58,7 @@ public class TeacherCustomAdapter extends RecyclerView.Adapter<TeacherCustomAdap
             }
         });
 
+        // Handle long click for menu options (Update/Delete)
         holder.itemView.setOnLongClickListener(v -> {
             PopupMenu popupMenu = new PopupMenu(context, v);
             popupMenu.inflate(R.menu.popup_menu);
@@ -98,7 +100,7 @@ public class TeacherCustomAdapter extends RecyclerView.Adapter<TeacherCustomAdap
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            techName = itemView.findViewById(R.id.TechName); // Set the correct ID
+            techName = itemView.findViewById(R.id.TechName);
             couName = itemView.findViewById(R.id.couName);
             couId = itemView.findViewById(R.id.couId);
             batch = itemView.findViewById(R.id.batchInfo);

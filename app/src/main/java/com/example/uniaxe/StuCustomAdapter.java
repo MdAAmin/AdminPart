@@ -35,13 +35,13 @@ public class StuCustomAdapter extends RecyclerView.Adapter<StuCustomAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Model model = data.get(position);
 
-        // Set the data for the fields in each item
-        holder.courseId.setText(model.getCourseId());
-        holder.courseName.setText(model.getCourseName());
-        holder.examType.setText(model.getExamType());
-        holder.semester.setText(model.getSemester());
-        holder.year.setText(model.getYear());
-        holder.pdfType.setText(model.getPdfType());
+        // Set the data for each field with labels
+        holder.courseId.setText("Cou. ID: " + model.getCourseId());
+        holder.courseName.setText("Cou. Name: " + model.getCourseName());
+        holder.examType.setText("Exam: " + model.getExamType());
+        holder.semester.setText("Semester: " + model.getSemester());
+        holder.year.setText("Year: " + model.getYear());
+        holder.pdfType.setText("PDF Type: " + model.getPdfType());
 
         // Handle item click to open the PDF
         holder.itemView.setOnClickListener(v -> {

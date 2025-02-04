@@ -24,7 +24,7 @@
             android:text="Course ID"
             android:background="@drawable/shape1"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/courseName"
@@ -34,7 +34,7 @@
             android:text="Course Name"
             android:background="@drawable/shape2"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="10sp" />
     </LinearLayout>
 
     <!-- Second Row (Exam Type, Semester, and Year in the same row) -->
@@ -53,7 +53,7 @@
             android:text="Exam Type"
             android:background="@drawable/shape3"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/semester"
@@ -63,7 +63,7 @@
             android:text="Semester"
             android:background="@drawable/shape4"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="10sp" />
 
 
     </LinearLayout>
@@ -84,7 +84,7 @@
             android:text="Year"
             android:textColor="#000000"
             android:background="@drawable/shape5"
-            android:textSize="16sp" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/pdfType"
@@ -94,7 +94,7 @@
             android:text="PDF Type"
             android:textColor="#000000"
             android:background="@drawable/shape6"
-            android:textSize="16sp" />
+            android:textSize="10sp" />
     </LinearLayout>
 
 </LinearLayout>
