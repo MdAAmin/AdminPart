@@ -121,5 +121,17 @@
     <string name="note5">Note</string>
     <string name="question5">Question</string>
     <string name="course_name8">Course Name</string>
+    <string name="create9">Create</string>
+    <string name="logout9">Logout</string>
+    <string name="read9">Read</string>
+    <string name="delete8">Delete</string>
+    <string name="update8">Update</string>
+    <string name="create67">Create</string>
+    <string name="read7">Read</string>
+    <string name="cgpa7">CGPA</string>
+    <string name="syllabus7">Syllabus</string>
+    <string name="create_course_outline">Create Course Outline</string>
+    <string name="read_outline">Read Outline</string>
+    <string name="logout">Logout</string>
 
 </resources>
