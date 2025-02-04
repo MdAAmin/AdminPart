@@ -20,6 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 public class AdminSignUp extends AppCompatActivity {
     private EditText adminNameEditText, emailEditText, passEditText, confirmPassEditText, idNumEditText, defAdminPassEditText;
@@ -31,6 +32,12 @@ public class AdminSignUp extends AppCompatActivity {
 
     // Default admin credentials
     private static final String DEFAULT_PASS = "HASa123@";
+
+    // Regular expressions for validation
+    private static final String NAME_REGEX = "^[A-Za-z\\s_.]+$"; // Allows letters, spaces, underscores, and periods for admin name
+    private static final String EMAIL_REGEX = "^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$"; // Email validation
+    private static final String PASSWORD_REGEX = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8}$"; // Password must have letters, numbers, and special characters (at least 8 characters)
+    private static final String ID_REGEX = "^[0-9]{18}$"; // ID must be numeric with exactly 18 digits
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,24 +74,21 @@ public class AdminSignUp extends AppCompatActivity {
                 return;
             }
 
-            // Validate other fields
-            if (adminName.isEmpty()) {
-                adminNameEditText.setError("Empty!!");
+            // Validate other fields using regex
+            if (!Pattern.matches(NAME_REGEX, adminName)) {
+                adminNameEditText.setError("Invalid name. Only letters, spaces, underscores, and periods allowed.");
                 adminNameEditText.requestFocus();
-            } else if (email.isEmpty()) {
-                emailEditText.setError("Empty!!");
+            } else if (!Pattern.matches(EMAIL_REGEX, email)) {
+                emailEditText.setError("Invalid email format.");
                 emailEditText.requestFocus();
-            } else if (pass.isEmpty()) {
-                passEditText.setError("Empty!!");
+            } else if (!Pattern.matches(PASSWORD_REGEX, pass)) {
+                passEditText.setError("Password must contain at least 8 characters, one letter, one number, and one special character.");
                 passEditText.requestFocus();
-            } else if (confirmPass.isEmpty()) {
-                confirmPassEditText.setError("Empty!!");
-                confirmPassEditText.requestFocus();
             } else if (!pass.equals(confirmPass)) {
-                confirmPassEditText.setError("Passwords do not match!!");
+                confirmPassEditText.setError("Passwords do not match.");
                 confirmPassEditText.requestFocus();
-            } else if (idNum.isEmpty()) {
-                idNumEditText.setError("Empty!!");
+            } else if (!Pattern.matches(ID_REGEX, idNum)) {
+                idNumEditText.setError("ID number must be exactly 18 digits.");
                 idNumEditText.requestFocus();
             } else {
                 progressBar.setVisibility(View.VISIBLE);

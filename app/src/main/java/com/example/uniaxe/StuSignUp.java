@@ -34,9 +34,10 @@ public class StuSignUp extends AppCompatActivity {
     private FirebaseFirestore firestore;
 
     // Regular expressions for validation
-    private final Pattern namePattern = Pattern.compile("[a-zA-Z ._]+");
-    private final Pattern emailPattern = Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
-    private final Pattern passPattern = Pattern.compile("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$");
+    private static final String NAME_REGEX = "^[A-Za-z\\s_.]+$"; // Allows letters, spaces, underscores, and periods for student name
+    private static final String EMAIL_REGEX = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"; // Email validation
+    private static final String PASSWORD_REGEX = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"; // Password must have letters, numbers, and special characters
+    private static final String ID_REGEX = "^[0-9]{18}$"; // ID must be numeric with exactly 18 digits
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,15 +121,15 @@ public class StuSignUp extends AppCompatActivity {
             nameEditText.setError("Name is required!");
             nameEditText.requestFocus();
             return false;
-        } else if (!namePattern.matcher(name).matches()) {
-            nameEditText.setError("Name can only contain alphabets!");
+        } else if (!Pattern.matches(NAME_REGEX, name)) {
+            nameEditText.setError("Name can only contain alphabets, spaces, underscores, and periods!");
             nameEditText.requestFocus();
             return false;
         } else if (email.isEmpty()) {
             emailEditText.setError("Email is required!");
             emailEditText.requestFocus();
             return false;
-        } else if (!emailPattern.matcher(email).matches()) {
+        } else if (!Pattern.matches(EMAIL_REGEX, email)) {
             emailEditText.setError("Enter a valid email format!");
             emailEditText.requestFocus();
             return false;
@@ -136,8 +137,8 @@ public class StuSignUp extends AppCompatActivity {
             passEditText.setError("Password is required!");
             passEditText.requestFocus();
             return false;
-        } else if (!passPattern.matcher(pass).matches()) {
-            passEditText.setError("Password must include uppercase, lowercase, digit, and be 8-20 characters long!");
+        } else if (!Pattern.matches(PASSWORD_REGEX, pass)) {
+            passEditText.setError("Password must include letters, digits, and special characters, with at least 8 characters.");
             passEditText.requestFocus();
             return false;
         } else if (batch.isEmpty()) {
@@ -146,6 +147,10 @@ public class StuSignUp extends AppCompatActivity {
             return false;
         } else if (id.isEmpty()) {
             idEditText.setError("ID is required!");
+            idEditText.requestFocus();
+            return false;
+        } else if (!Pattern.matches(ID_REGEX, id)) {
+            idEditText.setError("ID must be exactly 18 digits.");
             idEditText.requestFocus();
             return false;
         }
