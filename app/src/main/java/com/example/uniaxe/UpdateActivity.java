@@ -21,6 +21,10 @@ public class UpdateActivity extends AppCompatActivity {
 
     private static final int PDF_REQUEST_CODE = 2;
 
+    private static final String COURSE_ID_REGEX = "^(CSE|GED)-\\d{4}$";
+    private static final String COURSE_NAME_REGEX = "^[A-Za-z\\s,&]+$";
+    private static final String YEAR_REGEX = "^(20[0-9]{2}|2100)$";
+
     private EditText etCourseId, etCourseName, etYearName;
     private Spinner spinnerSemester;
     private RadioGroup radioGroupExamType, radioGroupQuestionNote;
@@ -108,20 +112,31 @@ public class UpdateActivity extends AppCompatActivity {
             examType = radioGroupExamType.getCheckedRadioButtonId() == R.id.radio_mid ? "Mid" : "Final";
             pdfType = radioGroupQuestionNote.getCheckedRadioButtonId() == R.id.radio_question ? "Question" : "Note";
 
-            if (courseId.isEmpty() || courseName.isEmpty() || year.isEmpty()) {
-                Toast.makeText(this, "All fields are required!", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            progressBar.setVisibility(View.VISIBLE);
-
-            if (pdfUri == null) {
-                // Update without new PDF
-                updateData(pdfUrl);
+            // Validate inputs using regex
+            if (courseId.isEmpty() || !courseId.matches(COURSE_ID_REGEX)) {
+                etCourseId.setError("Invalid Course ID (Format: CSE-XXXX or GED-XXXX)");
+                etCourseId.requestFocus();
+            } else if (courseName.isEmpty() || !courseName.matches(COURSE_NAME_REGEX)) {
+                etCourseName.setError("Invalid Course Name (Alphabets and spaces only)");
+                etCourseName.requestFocus();
+            } else if (year.isEmpty() || !year.matches(YEAR_REGEX)) {
+                etYearName.setError("Invalid Year (Must be between 2000 and 2100)");
+                etYearName.requestFocus();
+            } else if (semester == null || semester.equals("Select a Semester")) {
+                Toast.makeText(this, "Please select a semester", Toast.LENGTH_SHORT).show();
+            } else if (pdfUri == null) {
+                Toast.makeText(this, "Please select a PDF", Toast.LENGTH_SHORT).show();
             } else {
-                // Update with new PDF (Handle upload logic here)
-                String newPdfUrl = "your_pdf_upload_url_here"; // Replace with actual uploaded URL
-                updateData(newPdfUrl);
+                progressBar.setVisibility(View.VISIBLE);
+
+                // If there's no new PDF, use the existing one
+                if (pdfUri == null) {
+                    updateData(pdfUrl);
+                } else {
+                    // Handle PDF upload and then update data
+                    String newPdfUrl = "your_pdf_upload_url_here"; // Replace with actual uploaded URL
+                    updateData(newPdfUrl);
+                }
             }
         });
     }

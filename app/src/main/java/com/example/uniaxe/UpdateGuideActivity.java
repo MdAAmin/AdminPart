@@ -30,6 +30,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UpdateGuideActivity extends AppCompatActivity {
 
@@ -43,6 +45,11 @@ public class UpdateGuideActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private String key, couName, couId, batch, pdfUrl;
     private Uri pdfUri;
+
+    // Regex patterns
+    private static final String COU_ID_PATTERN = "^(CSE|GED)-\\d{4}$";  // Course ID format: CSE-XXXX or GED-XXXX
+    private static final String COU_NAME_PATTERN = "^[A-Za-z\\s,&]+$";  // Only alphabetic, spaces, commas, or ampersands for course name
+    private static final String BATCH_PATTERN = "^[0-9]+$";  // Numeric value for batch
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -67,12 +74,12 @@ public class UpdateGuideActivity extends AppCompatActivity {
         couName = getIntent().getStringExtra("couName");
         couId = getIntent().getStringExtra("couId");
         pdfUrl = getIntent().getStringExtra("pdfUrl");
-        batch = getIntent().getStringExtra("batch"); // Retrieve batch
+        batch = getIntent().getStringExtra("batch");
 
         // Set existing data in fields
         couNameEditText.setText(couName);
         couIdEditText.setText(couId);
-        batchEditText.setText(batch); // Set batch
+        batchEditText.setText(batch);
         pdfInfoTextView.setText(pdfUrl != null ? "PDF: " + pdfUrl : "No PDF Selected");
 
         // Select PDF
@@ -111,8 +118,19 @@ public class UpdateGuideActivity extends AppCompatActivity {
         couId = couIdEditText.getText().toString().trim();
         batch = batchEditText.getText().toString().trim();
 
-        if (couName.isEmpty() || couId.isEmpty() || batch.isEmpty()) {
-            Toast.makeText(this, "All fields are required!", Toast.LENGTH_SHORT).show();
+        // Validate fields using regular expressions
+        if (!validateInput(couName, COU_NAME_PATTERN)) {  // Validate course name
+            Toast.makeText(this, "Invalid course name. Only alphabetic, spaces, commas, or ampersands are allowed!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!validateInput(couId, COU_ID_PATTERN)) {  // Validate course ID
+            Toast.makeText(this, "Invalid course ID. Format must be CSE-XXXX or GED-XXXX!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!validateInput(batch, BATCH_PATTERN)) {  // Validate batch
+            Toast.makeText(this, "Invalid batch ID. Only numeric values are allowed!", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -127,11 +145,17 @@ public class UpdateGuideActivity extends AppCompatActivity {
         }
     }
 
+    private boolean validateInput(String input, String regex) {
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(input);
+        return matcher.matches();
+    }
+
     private void updateData(String newPdfUrl) {
         Map<String, Object> updatedData = new HashMap<>();
         updatedData.put("couName", couName);
         updatedData.put("couId", couId);
-        updatedData.put("batch", batch);  // Make sure batch is updated
+        updatedData.put("batch", batch);  // Ensure batch is updated
         updatedData.put("pdfUrl", newPdfUrl);
 
         databaseReference.child(key).updateChildren(updatedData)

@@ -118,29 +118,55 @@ public class CreateGuideTeacherActivity extends AppCompatActivity {
     }
 
     private boolean validateInputs() {
+        String couIdPattern = "^(CSE|GED)-\\d{4}$";  // Course ID format: CSE-XXXX or GED-XXXX
+        String couNamePattern = "^[A-Za-z\\s,&]+$";  // Only alphabetic, spaces, commas, or ampersands for course name
+        String batchPattern = "^[0-9]+$";  // Numeric value for batch
+
+        // Validate PDF selection
         if (pdfUri == null) {
             Toast.makeText(this, "Please Select a PDF", Toast.LENGTH_SHORT).show();
             return false;
         }
+
+        // Validate course name using regex
         if (couName.isEmpty()) {
             couNameEditText.setError("Empty");
             couNameEditText.requestFocus();
             return false;
+        } else if (!couName.matches(couNamePattern)) {
+            couNameEditText.setError("Invalid course name");
+            couNameEditText.requestFocus();
+            return false;
         }
+
+        // Validate course ID using regex
         if (couId.isEmpty()) {
             couIdEditText.setError("Empty");
             couIdEditText.requestFocus();
             return false;
+        } else if (!couId.matches(couIdPattern)) {
+            couIdEditText.setError("Invalid course ID (Format: CSE-XXXX or GED-XXXX)");
+            couIdEditText.requestFocus();
+            return false;
         }
+
+        // Validate batch as numeric value
         if (batch.isEmpty()) {
             batchEditText.setError("Empty");
             batchEditText.requestFocus();
             return false;
-        }
-        if (radioGroup.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "Please select an option", Toast.LENGTH_SHORT).show();
+        } else if (!batch.matches(batchPattern)) {
+            batchEditText.setError("Invalid batch (Enter a numeric value)");
+            batchEditText.requestFocus();
             return false;
         }
+
+        // Validate radio button selection for exam type
+        if (radioGroup.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "Please select an exam type", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
         return true;
     }
 

@@ -1,5 +1,4 @@
 package com.example.uniaxe;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -7,6 +6,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -37,6 +38,9 @@ import java.util.Map;
 public class CreateActivity extends AppCompatActivity {
 
     private static final int PDF_REQ = 1;
+    private static final String COURSE_ID_REGEX = "^(CSE|GED)-\\d{4}$";
+    private static final String COURSE_NAME_REGEX = "^[A-Za-z\\s,&]+$";
+    private static final String YEAR_REGEX = "^(20[0-9]{2}|2100)$";
 
     private EditText etQuestionId, etCourseName, etYearName;
     private RadioGroup radioGroup, radioGroupQuestionNote;
@@ -131,11 +135,20 @@ public class CreateActivity extends AppCompatActivity {
             if (courseId.isEmpty()) {
                 etQuestionId.setError("Course ID is required");
                 etQuestionId.requestFocus();
+            } else if (!courseId.matches(COURSE_ID_REGEX)) {
+                etQuestionId.setError("Invalid Course ID format (CSE-XXXX or GED-XXXX)");
+                etQuestionId.requestFocus();
             } else if (courseName.isEmpty()) {
                 etCourseName.setError("Course Name is required");
                 etCourseName.requestFocus();
+            } else if (!courseName.matches(COURSE_NAME_REGEX)) {
+                etCourseName.setError("Invalid Course Name format (only alphabetic characters allowed)");
+                etCourseName.requestFocus();
             } else if (yearName.isEmpty()) {
                 etYearName.setError("Year is required");
+                etYearName.requestFocus();
+            } else if (!yearName.matches(YEAR_REGEX)) {
+                etYearName.setError("Invalid Year format (must be between 2000 and 2100)");
                 etYearName.requestFocus();
             } else if (examType == null) {
                 Toast.makeText(CreateActivity.this, "Please select an exam type", Toast.LENGTH_SHORT).show();
