@@ -28,12 +28,12 @@
                 android:layout_marginStart="8dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/round_menu_24"
-                tools:ignore="TouchTargetSizeCheck" />
+                tools:ignore="ContentDescription,ImageContrastCheck,TouchTargetSizeCheck" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Teacher Dashboard"
+                android:text="@string/teacher_dashboard3"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
@@ -47,12 +47,14 @@
             android:background="#FFFFFF"
             android:padding="16dp"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            tools:ignore="InefficientWeight">
 
           <ImageView
               android:layout_width="wrap_content"
               android:layout_height="match_parent"
-              android:src="@drawable/pic3"/>
+              android:src="@drawable/pic3"
+              tools:ignore="ContentDescription" />
 
 
         </LinearLayout>

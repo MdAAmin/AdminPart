@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -19,13 +20,14 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:id="@+id/studentImage"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:contentDescription="Student Icon"
+                android:contentDescription="@string/student_icon"
                 android:src="@drawable/student" />
 
             <TextView
@@ -34,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text="Student"
+                android:text="@string/student"
                 android:textColor="#000000"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -44,13 +46,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:id="@+id/teacherImage"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:contentDescription="Teacher Icon"
+                android:contentDescription="@string/teacher_icon"
                 android:src="@drawable/teacher" />
 
             <TextView
@@ -59,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text="Teacher"
+                android:text="@string/teacher"
                 android:textColor="#000000"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -71,13 +74,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
 
         <ImageView
             android:id="@+id/adminImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:contentDescription="Admin Icon"
+            android:contentDescription="@string/admin_icon"
             android:src="@drawable/admin" />
 
         <TextView
@@ -86,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="Admin"
+            android:text="@string/admin"
             android:textColor="#000000"
             android:textSize="16sp" />
     </LinearLayout>
@@ -98,7 +102,8 @@
         android:layout_gravity="bottom"
         android:background="@drawable/wave_bottom"
         android:gravity="bottom"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="ObsoleteLayoutParam">
 
     </LinearLayout>
 

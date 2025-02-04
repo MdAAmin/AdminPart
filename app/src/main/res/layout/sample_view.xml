@@ -8,8 +8,6 @@
     android:layout_marginBottom="8dp"
     android:background="@drawable/border">
 
-    <!-- First Row (Course ID and Course Name in the same row) -->
-    <!-- First Row (Course ID, Course Name) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

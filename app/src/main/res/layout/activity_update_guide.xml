@@ -35,29 +35,29 @@
         <!--            android:layout_marginBottom="20dp"/>-->
 
 
-
         <TextView
             android:id="@+id/pdf_in"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
             android:layout_marginTop="30dp"
-            android:padding="8dp"
-            android:textSize="16sp"
+            android:layout_marginBottom="25dp"
             android:background="@android:drawable/edit_text"
             android:hint="@string/pdf_UP"
-            />
+            android:padding="8dp"
+            android:textSize="16sp"
+            tools:ignore="TextContrastCheck" />
 
         <EditText
             android:id="@+id/cou_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:autofillHints=""
-            android:hint="Course Name"
             android:background="@android:drawable/edit_text"
+            android:hint="@string/course_name8"
             android:inputType="text"
             android:padding="20dp"
-            android:layout_marginBottom="10dp" />
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
         <EditText
             android:id="@+id/cou_id"
@@ -65,34 +65,38 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:autofillHints=""
+            android:background="@android:drawable/edit_text"
             android:hint="@string/course_id_n"
             android:inputType="text"
-            android:background="@android:drawable/edit_text"
-            android:padding="20dp" />
+            android:padding="20dp"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
         <EditText
             android:id="@+id/batch_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:hint="@string/batch"
             android:autofillHints=""
-            android:inputType="phone"
             android:background="@android:drawable/edit_text"
-            android:minHeight="48dp" />
+            android:hint="@string/batch"
+            android:inputType="phone"
+            android:minHeight="48dp"
+            android:textColorHint="#0277BD"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
 
         <TextView
             android:id="@+id/selectPdf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
             android:layout_marginTop="30dp"
+            android:layout_marginBottom="25dp"
             android:background="@android:drawable/edit_text"
             android:hint="@string/pdf_UP"
 
             android:padding="8dp"
             android:textSize="16sp"
-            />
+            tools:ignore="TextContrastCheck" />
 
 
 
@@ -115,7 +119,8 @@
             android:id="@+id/updateButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/update_g"/>
+            android:text="@string/update_g"
+            tools:ignore="VisualLintButtonSize" />
 
     </LinearLayout>
 

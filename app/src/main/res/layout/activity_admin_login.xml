@@ -15,7 +15,7 @@
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome Back"
+        android:text="@string/welcome_back"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -33,8 +33,10 @@
             android:id="@+id/adminEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress"/>
+            android:hint="@string/email1"
+            android:inputType="textEmailAddress"
+            android:textColorHint="#546E7A"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Password Field -->
@@ -50,8 +52,9 @@
             android:id="@+id/adminPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword"/>
+            android:hint="@string/password2"
+            android:inputType="textPassword"
+            tools:ignore="VisualLintTextFieldSize" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Sign In Button -->
@@ -60,11 +63,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Sign In"
+        android:text="@string/sign_in"
         app:cornerRadius="50dp"
         android:textSize="16sp"
         android:textColor="@color/white"
-        app:backgroundTint="@color/black"/>
+        app:backgroundTint="@color/black"
+        tools:ignore="VisualLintButtonSize" />
 
     <!-- Sign Up Link -->
     <com.google.android.material.textview.MaterialTextView
