@@ -11,9 +11,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import com.cloudinary.android.MediaManager;
+import com.cloudinary.android.callback.ErrorInfo;
+import com.cloudinary.android.callback.UploadCallback;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,13 +52,12 @@ public class UpdateActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         Button btnUpdateFile = findViewById(R.id.btnUpdateFile);
 
-        // Get Firebase reference
+        // Initialize Firebase Database
         databaseReference = FirebaseDatabase.getInstance().getReference("PDFs");
 
         // Fetch data from intent
         key = getIntent().getStringExtra("key");
 
-        // Validate if the key is missing
         if (key == null || key.isEmpty()) {
             Toast.makeText(this, "Wrong entry! Key is missing.", Toast.LENGTH_SHORT).show();
             finish();
@@ -71,15 +72,13 @@ public class UpdateActivity extends AppCompatActivity {
         year = getIntent().getStringExtra("year");
         pdfUrl = getIntent().getStringExtra("pdfUrl");
 
-        // Set existing data in fields
+        // Set existing data
         etCourseId.setText(courseId);
         etCourseName.setText(courseName);
         etYearName.setText(year);
 
-        // Setup Spinner
         setupSpinner(semester);
 
-        // Set RadioGroup values
         if ("Mid".equalsIgnoreCase(examType)) {
             radioGroupExamType.check(R.id.radio_mid);
         } else {
@@ -112,7 +111,6 @@ public class UpdateActivity extends AppCompatActivity {
             examType = radioGroupExamType.getCheckedRadioButtonId() == R.id.radio_mid ? "Mid" : "Final";
             pdfType = radioGroupQuestionNote.getCheckedRadioButtonId() == R.id.radio_question ? "Question" : "Note";
 
-            // Validate inputs using regex
             if (courseId.isEmpty() || !courseId.matches(COURSE_ID_REGEX)) {
                 etCourseId.setError("Invalid Course ID (Format: CSE-XXXX or GED-XXXX)");
                 etCourseId.requestFocus();
@@ -124,18 +122,14 @@ public class UpdateActivity extends AppCompatActivity {
                 etYearName.requestFocus();
             } else if (semester == null || semester.equals("Select a Semester")) {
                 Toast.makeText(this, "Please select a semester", Toast.LENGTH_SHORT).show();
-            } else if (pdfUri == null) {
-                Toast.makeText(this, "Please select a PDF", Toast.LENGTH_SHORT).show();
             } else {
                 progressBar.setVisibility(View.VISIBLE);
 
-                // If there's no new PDF, use the existing one
+                // Upload new PDF if selected, else keep existing
                 if (pdfUri == null) {
                     updateData(pdfUrl);
                 } else {
-                    // Handle PDF upload and then update data
-                    String newPdfUrl = "your_pdf_upload_url_here"; // Replace with actual uploaded URL
-                    updateData(newPdfUrl);
+                    uploadPdfToCloudinary();
                 }
             }
         });
@@ -147,7 +141,6 @@ public class UpdateActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerSemester.setAdapter(adapter);
 
-        // Pre-select the fetched value
         if (fetchedSemester != null) {
             int index = 0;
             for (int i = 0; i < semesters.length; i++) {
@@ -157,6 +150,41 @@ public class UpdateActivity extends AppCompatActivity {
                 }
             }
             spinnerSemester.setSelection(index);
+        }
+    }
+
+    private void uploadPdfToCloudinary() {
+        if (pdfUri != null) {
+            MediaManager.get().upload(pdfUri)
+                    .callback(new UploadCallback() {
+                        @Override
+                        public void onStart(String requestId) {
+                            progressBar.setVisibility(View.VISIBLE);
+                        }
+
+                        @Override
+                        public void onProgress(String requestId, long bytes, long totalBytes) {
+                        }
+
+                        @Override
+                        public void onSuccess(String requestId, Map resultData) {
+                            String newPdfUrl = resultData.get("secure_url").toString();
+                            updateData(newPdfUrl);
+                        }
+
+                        @Override
+                        public void onError(String requestId, ErrorInfo error) {
+                            progressBar.setVisibility(View.GONE);
+                            Toast.makeText(UpdateActivity.this, "Upload Failed: " + error, Toast.LENGTH_SHORT).show();
+
+                        }
+
+                        @Override
+                        public void onReschedule(String requestId, ErrorInfo error) {
+
+                        }
+
+                    }).dispatch();
         }
     }
 
@@ -174,9 +202,7 @@ public class UpdateActivity extends AppCompatActivity {
                 .addOnSuccessListener(unused -> {
                     progressBar.setVisibility(View.GONE);
                     Toast.makeText(this, "Updated successfully!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, AdminDashBoard.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // To start a new activity
-                    startActivity(intent);
+                    startActivity(new Intent(this, AdminDashBoard.class));
                     finish();
                 })
                 .addOnFailureListener(e -> {

@@ -51,8 +51,8 @@ public class CreateActivity extends AppCompatActivity {
     private String pdfUrl;
     private String selectedSemester, selectedType;
 
-    @SuppressLint("MissingInflatedId")
-    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+    @SuppressLint("MissingInflatedId") //Calling findViewById()(UI component) before setContentView() in an Activity
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU) //method or class is only executed on devices running Android 13 (API level 33) or higher.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

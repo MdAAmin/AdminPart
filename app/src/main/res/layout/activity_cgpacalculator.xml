@@ -1,87 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/white">
+    android:padding="16dp"
+    android:background="@drawable/cgpa1">
 
-    <!-- Wave Shape at Top -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@drawable/gradient_bg" />
-
-    <!-- Content Layout -->
-    <LinearLayout
+    <TextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:text="@string/calculate_your_cgpa5"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:gravity="center"
         android:padding="16dp"
-        android:gravity="center_horizontal">
+        android:background="@drawable/shape4"
+        android:layout_marginTop="50dp" />
 
-        <!-- Title -->
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/calculate_your_cgpa"
-            android:textSize="22sp"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:padding="16dp" />
+    <EditText
+        android:id="@+id/gradesInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:hint="@string/enter_cgpa_e_g_3_1_5_2_1"
+        android:inputType="text"
+        android:background="@drawable/eds"
+        android:textColorHint="@color/black"
+        android:padding="16dp"
+        tools:ignore="Autofill,VisualLintTextFieldSize" />
 
-        <!-- Grades Input -->
-        <EditText
-            android:id="@+id/gradesInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="@string/enter_cgpa_of_courses_separated_by_commas"
-            android:inputType="text"
-            android:padding="16dp"
-            android:background="@drawable/rounded_edittext" />
+    <EditText
+        android:id="@+id/creditsInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_credits_e_g_3_4_2_1"
+        android:inputType="text"
+        android:background="@drawable/eds"
+        android:textColorHint="@color/black"
+        android:padding="16dp"
+        android:layout_marginTop="8dp"
+        tools:ignore="Autofill,VisualLintTextFieldSize" />
 
-        <!-- Credits Input -->
-        <EditText
-            android:id="@+id/creditsInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/enter_credits_of_corresponding_courses_separated_by_commas"
-            android:inputType="text"
-            android:padding="16dp"
-            android:background="@drawable/rounded_edittext"
-            android:layout_marginTop="8dp" />
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:elevation="4dp"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="12dp"
+        android:text="@string/calculate_cgpa5"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        tools:ignore="TextContrastCheck" />
 
-        <!-- Calculate Button -->
-        <Button
-            android:id="@+id/calculateButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/calculate_cgpa"
-            android:textAllCaps="false"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="12dp"
-            android:background="@drawable/rounded_button"
-            android:layout_marginTop="16dp"
-            android:elevation="4dp"
-            android:textColor="@android:color/white" />
-
-        <!-- Result Text -->
-        <TextView
-            android:id="@+id/resultTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/result_will_appear_here"
-            android:textSize="18sp"
-            android:textColor="@android:color/black"
-            android:gravity="center"
-            android:padding="16dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/rounded_button"
-            android:visibility="gone" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Result will appear here"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/darker_gray"
+        android:visibility="gone"
+        tools:ignore="HardcodedText" />
 
 </LinearLayout>

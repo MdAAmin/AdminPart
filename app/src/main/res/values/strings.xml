@@ -33,10 +33,6 @@
     <string name="already_have_an_account_login">Already have an account? Login</string>
     <string name="submit">Submit</string>
     <string name="calculate_your_cgpa">Calculate Your CGPA</string>
-    <string name="enter_credits_of_corresponding_courses_separated_by_commas">
-</string>
-    <string name="enter_cgpa_of_courses_separated_by_commas">
-</string>
     <string name="calculate_cgpa">Calculate CGPA</string>
     <string name="result_will_appear_here">Result will appear here</string>
     <string name="add_your_note">Add Your Note</string>
@@ -132,5 +128,9 @@
     <string name="create_course_outline">Create Course Outline</string>
     <string name="read_outline">Read Outline</string>
     <string name="logout">Logout</string>
+    <string name="calculate_your_cgpa5">Calculate Your CGPA</string>
+    <string name="enter_cgpa_e_g_3_1_5_2_1">Enter CGPA (e.g. 3,1.5,2,1)</string>
+    <string name="enter_credits_e_g_3_4_2_1">Enter credits (e.g. 3,4,2,1)</string>
+    <string name="calculate_cgpa5">Calculate CGPA</string>
 
 </resources>
