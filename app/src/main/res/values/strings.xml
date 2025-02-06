@@ -95,12 +95,12 @@
     <string name="teacher_icon">Teacher Icon</string>
     <string name="teacher">Teacher</string>
     <string name="sign_in4">Sign In</string>
-    <string name="do_not_have_an_account3">Do not have an account</string>
+    <string name="do_not_have_an_account3">Do not have an account?</string>
     <string name="login3">Login</string>
     <string name="id3">ID</string>
     <string name="student_name3">Student name</string>
     <string name="sign_in3">Sign In</string>
-    <string name="do_not_have_an_accountw">Do not have an account</string>
+    <string name="do_not_have_an_accountw">Do not have an account?</string>
     <string name="loginw">Login</string>
     <string name="student_dashboard3">Student Dashboard</string>
     <string name="create3">Create</string>
@@ -132,5 +132,9 @@
     <string name="enter_cgpa_e_g_3_1_5_2_1">Enter CGPA (e.g. 3,1.5,2,1)</string>
     <string name="enter_credits_e_g_3_4_2_1">Enter credits (e.g. 3,4,2,1)</string>
     <string name="calculate_cgpa5">Calculate CGPA</string>
+    <string name="search">Search</string>
+    <string name="search2">Search</string>
+    <string name="search3">Search</string>
+    <string name="search6">Search</string>
 
 </resources>

@@ -35,7 +35,7 @@ public class TeachSignUp extends AppCompatActivity {
 
     // Regular expressions for validation
     private final Pattern namePattern = Pattern.compile("[a-zA-Z ._]+");
-    private final Pattern emailPattern = Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    private final Pattern emailPattern = Pattern.compile("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$");
     private final Pattern passPattern = Pattern.compile("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$");
 
     @Override

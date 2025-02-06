@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:queryHint="Search by course name, ID, or exam type"
         android:iconifiedByDefault="false"
+        android:background="@drawable/eds"
         android:layout_marginBottom="16dp" />
 
     <!-- ProgressBar for loading indication -->
