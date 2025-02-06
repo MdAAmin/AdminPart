@@ -37,7 +37,7 @@ public class AdminSignUp extends AppCompatActivity {
     private static final String NAME_REGEX = "^[A-Za-z\\s_.]+$"; // Allows letters, spaces, underscores, and periods for admin name
     private static final String EMAIL_REGEX = "^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$"; // Email validation
     private static final String PASSWORD_REGEX = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8}$"; // Password must have letters, numbers, and special characters (at least 8 characters)
-    private static final String ID_REGEX = "^[0-9]{18}$"; // ID must be numeric with exactly 18 digits
+    private static final String ID_REGEX = "^[0-9]{16}$"; // ID must be numeric with exactly 16 digits
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +88,7 @@ public class AdminSignUp extends AppCompatActivity {
                 confirmPassEditText.setError("Passwords do not match.");
                 confirmPassEditText.requestFocus();
             } else if (!Pattern.matches(ID_REGEX, idNum)) {
-                idNumEditText.setError("ID number must be exactly 18 digits.");
+                idNumEditText.setError("ID number must be exactly 16 digits.");
                 idNumEditText.requestFocus();
             } else {
                 progressBar.setVisibility(View.VISIBLE);

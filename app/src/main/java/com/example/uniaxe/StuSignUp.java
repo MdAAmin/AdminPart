@@ -37,7 +37,7 @@ public class StuSignUp extends AppCompatActivity {
     private static final String NAME_REGEX = "^[A-Za-z\\s_.]+$"; // Allows letters, spaces, underscores, and periods for student name
     private static final String EMAIL_REGEX = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"; // Email validation
     private static final String PASSWORD_REGEX = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"; // Password must have letters, numbers, and special characters
-    private static final String ID_REGEX = "^[0-9]{18}$"; // ID must be numeric with exactly 18 digits
+    private static final String ID_REGEX = "^[0-9]{16}$"; // ID must be numeric with exactly 16 digits
     private static final String BATCH_REGEX = "^[0-9]+$"; // Batch must be numeric
 
     @Override
@@ -155,7 +155,7 @@ public class StuSignUp extends AppCompatActivity {
             idEditText.requestFocus();
             return false;
         } else if (!Pattern.matches(ID_REGEX, id)) {
-            idEditText.setError("ID must be exactly 18 digits.");
+            idEditText.setError("ID must be exactly 16 digits.");
             idEditText.requestFocus();
             return false;
         }
